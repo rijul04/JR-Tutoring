@@ -14,6 +14,7 @@ export default defineConfig({
   plugins: [
     pluginOas({
       generators: [], // Disables the generation of schema files
+      serverIndex: 0,
     }),
     pluginTs({
       output: {
@@ -36,11 +37,11 @@ export default defineConfig({
       },
       group: {
         type: "tag", // Groups hooks based on the first tag of each operation
-        name: ({ group }) => `${group}Hooks`, // Naming convention for grouped files
+        name: ({ group }) => `${group}Hooks`,
       },
       query: {
-        methods: ["get"], // Generates hooks for GET requests
-        importPath: "@tanstack/react-query", // Import path for React Query
+        methods: ["get"],
+        importPath: "@tanstack/react-query",
       },
       mutation: {
         methods: ["post", "put", "patch", "delete"],
@@ -55,7 +56,7 @@ export default defineConfig({
       infinite: false,
       suspense: false,
       pathParamsType: "object",
-      paramsCasing: "camelcase", // Converts parameter names to camelCase
+      paramsCasing: "camelcase",
     }),
   ],
 });

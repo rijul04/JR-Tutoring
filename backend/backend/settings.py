@@ -148,6 +148,12 @@ SPECTACULAR_SETTINGS = {
     'TITLE': 'JR Tutoring API',
     'DESCRIPTION': 'API documentation for the JR Tutoring platform',
     'VERSION': '1.0.0',
+    'SERVERS': [
+        {
+            'url': 'http://localhost:8000',
+            'description': 'local development server',
+        },
+    ],
 }
 
 CORS_ALLOWED_ORIGINS = [
