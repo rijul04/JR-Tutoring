@@ -1,0 +1,31 @@
+export type { SchemaRetrieveQueryKey } from './schemaHooks/useSchemaRetrieve.ts'
+export type { TestModel2CreateMutationKey } from './test_model_2Hooks/useTestModel2Create.ts'
+export type { TestModel2DestroyMutationKey } from './test_model_2Hooks/useTestModel2Destroy.ts'
+export type { TestModel2ListQueryKey } from './test_model_2Hooks/useTestModel2List.ts'
+export type { TestModel2PartialUpdateMutationKey } from './test_model_2Hooks/useTestModel2PartialUpdate.ts'
+export type { TestModel2RetrieveQueryKey } from './test_model_2Hooks/useTestModel2Retrieve.ts'
+export type { TestModel2UpdateMutationKey } from './test_model_2Hooks/useTestModel2Update.ts'
+export type { TestModelCreateMutationKey } from './test_modelHooks/useTestModelCreate.ts'
+export type { TestModelDestroyMutationKey } from './test_modelHooks/useTestModelDestroy.ts'
+export type { TestModelListQueryKey } from './test_modelHooks/useTestModelList.ts'
+export type { TestModelPartialUpdateMutationKey } from './test_modelHooks/useTestModelPartialUpdate.ts'
+export type { TestModelRetrieveQueryKey } from './test_modelHooks/useTestModelRetrieve.ts'
+export type { TestModelUpdateMutationKey } from './test_modelHooks/useTestModelUpdate.ts'
+export { schemaRetrieveQueryKey, schemaRetrieve, schemaRetrieveQueryOptions, useSchemaRetrieve } from './schemaHooks/useSchemaRetrieve.ts'
+export { testModel2CreateMutationKey, testModel2Create, useTestModel2Create } from './test_model_2Hooks/useTestModel2Create.ts'
+export { testModel2DestroyMutationKey, testModel2Destroy, useTestModel2Destroy } from './test_model_2Hooks/useTestModel2Destroy.ts'
+export { testModel2ListQueryKey, testModel2List, testModel2ListQueryOptions, useTestModel2List } from './test_model_2Hooks/useTestModel2List.ts'
+export { testModel2PartialUpdateMutationKey, testModel2PartialUpdate, useTestModel2PartialUpdate } from './test_model_2Hooks/useTestModel2PartialUpdate.ts'
+export {
+  testModel2RetrieveQueryKey,
+  testModel2Retrieve,
+  testModel2RetrieveQueryOptions,
+  useTestModel2Retrieve,
+} from './test_model_2Hooks/useTestModel2Retrieve.ts'
+export { testModel2UpdateMutationKey, testModel2Update, useTestModel2Update } from './test_model_2Hooks/useTestModel2Update.ts'
+export { testModelCreateMutationKey, testModelCreate, useTestModelCreate } from './test_modelHooks/useTestModelCreate.ts'
+export { testModelDestroyMutationKey, testModelDestroy, useTestModelDestroy } from './test_modelHooks/useTestModelDestroy.ts'
+export { testModelListQueryKey, testModelList, testModelListQueryOptions, useTestModelList } from './test_modelHooks/useTestModelList.ts'
+export { testModelPartialUpdateMutationKey, testModelPartialUpdate, useTestModelPartialUpdate } from './test_modelHooks/useTestModelPartialUpdate.ts'
+export { testModelRetrieveQueryKey, testModelRetrieve, testModelRetrieveQueryOptions, useTestModelRetrieve } from './test_modelHooks/useTestModelRetrieve.ts'
+export { testModelUpdateMutationKey, testModelUpdate, useTestModelUpdate } from './test_modelHooks/useTestModelUpdate.ts'
