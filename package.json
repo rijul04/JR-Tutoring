@@ -9,7 +9,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky"
+    "prepare": "husky",
+    "regen": "cd backend && ./venv/bin/python manage.py spectacular --file ../openapi/schema.yaml && cd ../frontend && npx kubb generate"
   },
   "repository": {
     "type": "git",
