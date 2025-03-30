@@ -48,6 +48,36 @@ export type TestModel2 = {
   name: string
 }
 
+export type TokenObtainPair = {
+  /**
+   * @type string
+   */
+  username: string
+  /**
+   * @type string
+   */
+  password: string
+  /**
+   * @type string
+   */
+  readonly access: string
+  /**
+   * @type string
+   */
+  readonly refresh: string
+}
+
+export type TokenRefresh = {
+  /**
+   * @type string
+   */
+  readonly access: string
+  /**
+   * @type string
+   */
+  refresh: string
+}
+
 export const schemaRetrieveQueryParamsFormatEnum = {
   json: 'json',
   yaml: 'yaml',
@@ -383,5 +413,29 @@ export type TestModel2DestroyMutationResponse = TestModel2Destroy204
 export type TestModel2DestroyMutation = {
   Response: TestModel2Destroy204
   PathParams: TestModel2DestroyPathParams
+  Errors: any
+}
+
+export type TokenCreate200 = Omit<NonNullable<TokenObtainPair>, 'username' | 'password'>
+
+export type TokenCreateMutationRequest = Omit<NonNullable<TokenObtainPair>, 'access' | 'refresh'>
+
+export type TokenCreateMutationResponse = TokenCreate200
+
+export type TokenCreateMutation = {
+  Response: TokenCreate200
+  Request: TokenCreateMutationRequest
+  Errors: any
+}
+
+export type TokenRefreshCreate200 = Omit<NonNullable<TokenRefresh>, 'refresh'>
+
+export type TokenRefreshCreateMutationRequest = Omit<NonNullable<TokenRefresh>, 'access'>
+
+export type TokenRefreshCreateMutationResponse = TokenRefreshCreate200
+
+export type TokenRefreshCreateMutation = {
+  Response: TokenRefreshCreate200
+  Request: TokenRefreshCreateMutationRequest
   Errors: any
 }

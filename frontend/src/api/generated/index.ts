@@ -11,11 +11,15 @@ export type { TestModelListQueryKey } from './hooks/test_modelHooks/useTestModel
 export type { TestModelPartialUpdateMutationKey } from './hooks/test_modelHooks/useTestModelPartialUpdate.ts'
 export type { TestModelRetrieveQueryKey } from './hooks/test_modelHooks/useTestModelRetrieve.ts'
 export type { TestModelUpdateMutationKey } from './hooks/test_modelHooks/useTestModelUpdate.ts'
+export type { TokenCreateMutationKey } from './hooks/tokenHooks/useTokenCreate.ts'
+export type { TokenRefreshCreateMutationKey } from './hooks/tokenHooks/useTokenRefreshCreate.ts'
 export type {
   PatchedTestModel,
   PatchedTestModel2,
   TestModel,
   TestModel2,
+  TokenObtainPair,
+  TokenRefresh,
   SchemaRetrieveQueryParamsFormatEnum,
   SchemaRetrieveQueryParamsLangEnum,
   SchemaRetrieveQueryParams,
@@ -72,6 +76,14 @@ export type {
   TestModel2Destroy204,
   TestModel2DestroyMutationResponse,
   TestModel2DestroyMutation,
+  TokenCreate200,
+  TokenCreateMutationRequest,
+  TokenCreateMutationResponse,
+  TokenCreateMutation,
+  TokenRefreshCreate200,
+  TokenRefreshCreateMutationRequest,
+  TokenRefreshCreateMutationResponse,
+  TokenRefreshCreateMutation,
 } from './types/types.ts'
 export { schemaRetrieveQueryKey, schemaRetrieve, schemaRetrieveQueryOptions, useSchemaRetrieve } from './hooks/schemaHooks/useSchemaRetrieve.ts'
 export { testModel2CreateMutationKey, testModel2Create, useTestModel2Create } from './hooks/test_model_2Hooks/useTestModel2Create.ts'
@@ -100,4 +112,6 @@ export {
   useTestModelRetrieve,
 } from './hooks/test_modelHooks/useTestModelRetrieve.ts'
 export { testModelUpdateMutationKey, testModelUpdate, useTestModelUpdate } from './hooks/test_modelHooks/useTestModelUpdate.ts'
+export { tokenCreateMutationKey, tokenCreate, useTokenCreate } from './hooks/tokenHooks/useTokenCreate.ts'
+export { tokenRefreshCreateMutationKey, tokenRefreshCreate, useTokenRefreshCreate } from './hooks/tokenHooks/useTokenRefreshCreate.ts'
 export { schemaRetrieveQueryParamsFormatEnum, schemaRetrieveQueryParamsLangEnum } from './types/types.ts'
