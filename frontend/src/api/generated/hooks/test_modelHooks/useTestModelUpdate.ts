@@ -22,6 +22,7 @@ export async function testModelUpdate(
   const res = await request<TestModelUpdateMutationResponse, ResponseErrorConfig<Error>, TestModelUpdateMutationRequest>({
     method: 'PUT',
     url: `/api/test_model/${id}/`,
+    baseURL: 'http://localhost:8000',
     data,
     ...requestConfig,
   })

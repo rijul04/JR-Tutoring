@@ -3,18 +3,21 @@ import { pluginOas } from "@kubb/plugin-oas";
 import { pluginTs } from "@kubb/plugin-ts";
 import { pluginReactQuery } from "@kubb/plugin-react-query";
 
+const baseUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:8000";
+
 export default defineConfig({
   input: {
-    path: "../openapi/schema.yaml", // Adjust the path to your OpenAPI spec
+    path: "../openapi/schema.yaml",
   },
   output: {
-    path: "./src/api/generated", // Base output directory
+    path: "./src/api/generated",
     clean: true,
   },
   plugins: [
     pluginOas({
-      generators: [], // Disables the generation of schema files
+      generators: [],
       serverIndex: 0,
+      validate: true,
     }),
     pluginTs({
       output: {
@@ -25,10 +28,10 @@ export default defineConfig({
         type: "tag",
         name: ({ group }) => `'${group}Controller`,
       },
-      enumType: "asConst", // Enums will be generated using 'as const'
-      dateType: "string", // Dates will be represented as strings
-      unknownType: "unknown", // Uses 'unknown' for unknown types
-      optionalType: "questionTokenAndUndefined", // Handles optional properties with '?' and 'undefined'
+      enumType: "asConst",
+      dateType: "string",
+      unknownType: "unknown",
+      optionalType: "questionTokenAndUndefined",
     }),
     pluginReactQuery({
       output: {
@@ -36,8 +39,11 @@ export default defineConfig({
         banner: "`Kubb: Generated hooks`",
       },
       group: {
-        type: "tag", // Groups hooks based on the first tag of each operation
+        type: "tag",
         name: ({ group }) => `${group}Hooks`,
+      },
+      client: {
+        baseURL: baseUrl, // from local env file
       },
       query: {
         methods: ["get"],

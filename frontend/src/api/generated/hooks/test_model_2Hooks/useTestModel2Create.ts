@@ -21,6 +21,7 @@ export async function testModel2Create(
   const res = await request<TestModel2CreateMutationResponse, ResponseErrorConfig<Error>, TestModel2CreateMutationRequest>({
     method: 'POST',
     url: `/api/test_model_2/`,
+    baseURL: 'http://localhost:8000',
     data,
     ...requestConfig,
   })

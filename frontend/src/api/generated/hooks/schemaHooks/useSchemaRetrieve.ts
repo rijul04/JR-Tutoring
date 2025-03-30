@@ -16,7 +16,13 @@ export type SchemaRetrieveQueryKey = ReturnType<typeof schemaRetrieveQueryKey>
 export async function schemaRetrieve(params?: SchemaRetrieveQueryParams, config: Partial<RequestConfig> & { client?: typeof client } = {}) {
   const { client: request = client, ...requestConfig } = config
 
-  const res = await request<SchemaRetrieveQueryResponse, ResponseErrorConfig<Error>, unknown>({ method: 'GET', url: `/api/schema/`, params, ...requestConfig })
+  const res = await request<SchemaRetrieveQueryResponse, ResponseErrorConfig<Error>, unknown>({
+    method: 'GET',
+    url: `/api/schema/`,
+    baseURL: 'http://localhost:8000',
+    params,
+    ...requestConfig,
+  })
   return res.data
 }
 

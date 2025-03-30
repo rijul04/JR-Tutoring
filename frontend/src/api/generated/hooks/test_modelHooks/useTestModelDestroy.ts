@@ -18,6 +18,7 @@ export async function testModelDestroy({ id }: { id: TestModelDestroyPathParams[
   const res = await request<TestModelDestroyMutationResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'DELETE',
     url: `/api/test_model/${id}/`,
+    baseURL: 'http://localhost:8000',
     ...requestConfig,
   })
   return res.data

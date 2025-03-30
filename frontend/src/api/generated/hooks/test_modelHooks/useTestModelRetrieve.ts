@@ -18,6 +18,7 @@ export async function testModelRetrieve({ id }: { id: TestModelRetrievePathParam
   const res = await request<TestModelRetrieveQueryResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'GET',
     url: `/api/test_model/${id}/`,
+    baseURL: 'http://localhost:8000',
     ...requestConfig,
   })
   return res.data

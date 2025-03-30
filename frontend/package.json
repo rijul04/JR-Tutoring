@@ -35,6 +35,7 @@
     "@kubb/plugin-oas": "^3.7.2",
     "@kubb/plugin-react-query": "^3.7.2",
     "@kubb/plugin-ts": "^3.7.2",
+    "@types/node": "^22.13.14",
     "@types/react": "19.0.12",
     "typescript": "5.8.2"
   }

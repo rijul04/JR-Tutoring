@@ -22,6 +22,7 @@ export async function testModelPartialUpdate(
   const res = await request<TestModelPartialUpdateMutationResponse, ResponseErrorConfig<Error>, TestModelPartialUpdateMutationRequest>({
     method: 'PATCH',
     url: `/api/test_model/${id}/`,
+    baseURL: 'http://localhost:8000',
     data,
     ...requestConfig,
   })

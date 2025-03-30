@@ -15,7 +15,12 @@ export type TestModel2ListQueryKey = ReturnType<typeof testModel2ListQueryKey>
 export async function testModel2List(config: Partial<RequestConfig> & { client?: typeof client } = {}) {
   const { client: request = client, ...requestConfig } = config
 
-  const res = await request<TestModel2ListQueryResponse, ResponseErrorConfig<Error>, unknown>({ method: 'GET', url: `/api/test_model_2/`, ...requestConfig })
+  const res = await request<TestModel2ListQueryResponse, ResponseErrorConfig<Error>, unknown>({
+    method: 'GET',
+    url: `/api/test_model_2/`,
+    baseURL: 'http://localhost:8000',
+    ...requestConfig,
+  })
   return res.data
 }
 
