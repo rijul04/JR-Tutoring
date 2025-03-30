@@ -1,0 +1,494 @@
+openapi: 3.0.3
+info:
+  title: JR Tutoring API
+  version: 1.0.0
+  description: API documentation for the JR Tutoring platform
+paths:
+  /api/schema/:
+    get:
+      operationId: schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - ug
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - schema
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/test_model/:
+    get:
+      operationId: test_model_list
+      tags:
+      - test_model
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TestModel'
+          description: ''
+    post:
+      operationId: test_model_create
+      tags:
+      - test_model
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TestModel'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TestModel'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestModel'
+          description: ''
+  /api/test_model/{id}/:
+    get:
+      operationId: test_model_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this test model.
+        required: true
+      tags:
+      - test_model
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestModel'
+          description: ''
+    put:
+      operationId: test_model_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this test model.
+        required: true
+      tags:
+      - test_model
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TestModel'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TestModel'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestModel'
+          description: ''
+    patch:
+      operationId: test_model_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this test model.
+        required: true
+      tags:
+      - test_model
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTestModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTestModel'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTestModel'
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestModel'
+          description: ''
+    delete:
+      operationId: test_model_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this test model.
+        required: true
+      tags:
+      - test_model
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/test_model_2/:
+    get:
+      operationId: test_model_2_list
+      tags:
+      - test_model_2
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TestModel2'
+          description: ''
+    post:
+      operationId: test_model_2_create
+      tags:
+      - test_model_2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestModel2'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TestModel2'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TestModel2'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestModel2'
+          description: ''
+  /api/test_model_2/{id}/:
+    get:
+      operationId: test_model_2_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this test model2.
+        required: true
+      tags:
+      - test_model_2
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestModel2'
+          description: ''
+    put:
+      operationId: test_model_2_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this test model2.
+        required: true
+      tags:
+      - test_model_2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestModel2'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TestModel2'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TestModel2'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestModel2'
+          description: ''
+    patch:
+      operationId: test_model_2_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this test model2.
+        required: true
+      tags:
+      - test_model_2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTestModel2'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTestModel2'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTestModel2'
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestModel2'
+          description: ''
+    delete:
+      operationId: test_model_2_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this test model2.
+        required: true
+      tags:
+      - test_model_2
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    PatchedTestModel:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 1000
+    PatchedTestModel2:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 1000
+    TestModel:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 1000
+      required:
+      - id
+      - name
+    TestModel2:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 1000
+      required:
+      - id
+      - name
+  securitySchemes:
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

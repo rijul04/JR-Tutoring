@@ -1,0 +1,25 @@
+{
+  "name": "jr-tutoring",
+  "version": "1.0.0",
+  "description": "JR-Tutoring Website",
+  "main": "index.js",
+  "dependencies": {
+    "husky": "^9.1.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://rijul04@github.com/rijul04/JR-Tutoring.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rijul04/JR-Tutoring/issues"
+  },
+  "homepage": "https://github.com/rijul04/JR-Tutoring#readme"
+}

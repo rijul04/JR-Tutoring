@@ -1,0 +1,14 @@
+# #!/bin/sh
+
+# echo "🌀 Activating Python virtualenv..."
+# cd backend || exit 1
+# . venv/bin/activate || exit 1
+
+# echo "🌀 Generating OpenAPI schema..."
+# python3 manage.py spectacular --file ../openapi/schema.yaml || exit 1
+
+# echo "🔄 Running Orval to sync frontend types..."
+# cd ../frontend || exit 1
+# npm run orval || exit 1
+
+# echo "✅ All good! Pushing..."
