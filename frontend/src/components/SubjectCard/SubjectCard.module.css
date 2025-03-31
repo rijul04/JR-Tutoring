@@ -1,0 +1,34 @@
+.card {
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  text-align: center;
+  background-color: white;
+  border: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.badge {
+  border: 1px solid #ec4899;
+  color: #ec4899;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.language {
+  font-size: 1.5rem;
+}
+
+.tutorCount {
+  color: #888;
+  font-size: 0.9rem;
+  margin: 0;
+}
