@@ -30,7 +30,7 @@ export default function Home() {
         <SubjectCard code="GCSE" subject="Physics" />
       </Hero>
       <Hero
-        background="/images/BasicBackground2.png"
+        background="/images/BasicBackground2.jpg"
         className={styles.howItWorks}
       >
         <div>
