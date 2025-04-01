@@ -1,3 +1,12 @@
+.page h3 {
+  font-weight: 600;
+  font-size: 3.5rem;
+}
+
+.page p {
+  font-weight: 400;
+}
+
 .basicText {
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -5,18 +14,21 @@
   color: white;
 }
 
-.basicText p {
-  font-weight: 400;
-}
-
-.basicText h3 {
-  font-weight: 600;
-  font-size: 3.5rem;
-}
-
 .subjectCards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-  gap: 2rem; /* space between cards */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
   margin-top: 2rem;
+}
+
+.howItWorks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+.howItWorks h4 {
+  font-weight: 500;
+  font-size: 2rem;
 }
