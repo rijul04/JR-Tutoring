@@ -1,0 +1,12 @@
+.hero {
+  background-size: cover;
+  background-position: center;
+  min-height: 50vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.children {
+  max-width: min(1200px, 100vw);
+}

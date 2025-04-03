@@ -16,9 +16,8 @@
 
 .subjectCards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
 }
 
 .howItWorks {
@@ -26,9 +25,16 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   align-items: center;
+  place-items: center;
 }
 
 .howItWorks h4 {
   font-weight: 500;
   font-size: 2rem;
+}
+
+@media (max-width: 767px) {
+  .howItWorks {
+    grid-template-columns: 1fr;
+  }
 }
