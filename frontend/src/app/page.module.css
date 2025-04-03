@@ -1,23 +1,8 @@
-.page h3 {
-  font-weight: 600;
-  font-size: 3.5rem;
-}
-
-.page p {
-  font-weight: 400;
-}
-
 .basicText {
   word-wrap: break-word;
   overflow-wrap: break-word;
   text-align: center;
   color: white;
-}
-
-.subjectCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
 }
 
 .howItWorks {
@@ -28,13 +13,16 @@
   place-items: center;
 }
 
-.howItWorks h4 {
-  font-weight: 500;
-  font-size: 2rem;
-}
-
 @media (max-width: 767px) {
   .howItWorks {
     grid-template-columns: 1fr;
   }
+}
+
+/* reusable ones below */
+
+.basicGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
 }

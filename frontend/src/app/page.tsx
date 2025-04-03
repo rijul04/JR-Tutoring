@@ -1,5 +1,7 @@
 "use client";
 
+import { GraduationCap, Shield, BookOpen, DollarSign } from "lucide-react";
+
 import Image from "next/image";
 import Hero from "@/components/Hero/Hero";
 
@@ -8,6 +10,7 @@ import SubjectCard from "@/components/SubjectCard/SubjectCard";
 import { Label } from "@/components/ui/label";
 import StepCircle from "@/components/CircleList/CircleList";
 import CircleList from "@/components/CircleList/CircleList";
+import { IconCircle } from "@/features/icons/components/IconCircle/IconCircle";
 
 // once done with this stuff need to use a different component library that doesnt use tailwind as dont like it but for now using it is fine to do the small stuff
 
@@ -24,7 +27,7 @@ export default function Home() {
       </Hero>
       <Hero
         background="/images/BasicBackground1.png"
-        className={styles.subjectCards}
+        className={styles.basicGrid}
       >
         <SubjectCard code="GCSE / A Level" subject="Mathematics" />
         <SubjectCard code="GCSE / A Level" subject="Further Mathematics" />
@@ -69,6 +72,43 @@ export default function Home() {
             </>,
           ]}
         />
+      </Hero>
+      <Hero
+        background="/images/BasicBackground3.jpg"
+        className={styles.basicGrid}
+      >
+        <div>
+          <IconCircle icon={<GraduationCap size={16} />} />
+          <h4>Expert Tutors</h4>
+          <p>
+            Eaque ipsa quae ab illo inventore veritatis et quasi architecto
+            beatae vitae dicta sunt explicabo.
+          </p>
+        </div>
+        <div>
+          <IconCircle icon={<Shield size={16} />} />
+          <h4>Verified Profiles</h4>
+          <p>
+            Eaque ipsa quae ab illo inventore veritatis et quasi architecto
+            beatae vitae dicta sunt explicabo.
+          </p>
+        </div>
+        <div>
+          <IconCircle icon={<BookOpen size={16} />} />
+          <h4>Pay Per Lesson</h4>
+          <p>
+            Eaque ipsa quae ab illo inventore veritatis et quasi architecto
+            beatae vitae dicta sunt explicabo.
+          </p>
+        </div>
+        <div>
+          <IconCircle icon={<DollarSign size={16} />} />
+          <h4>Affordable Prices</h4>
+          <p>
+            Eaque ipsa quae ab illo inventore veritatis et quasi architecto
+            beatae vitae dicta sunt explicabo.
+          </p>
+        </div>
       </Hero>
     </div>
   );

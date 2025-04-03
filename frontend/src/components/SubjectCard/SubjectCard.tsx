@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import styles from "./SubjectCard.module.css";
+import { mergeClasses } from "@fluentui/react-components";
 
 type Props = {
   code: string;

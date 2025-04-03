@@ -140,3 +140,19 @@ a {
     @apply bg-background text-foreground;
   }
 }
+
+/* adding global styling for custom theme below */
+
+h3 {
+  font-weight: 600;
+  font-size: 3.5rem;
+}
+
+h4 {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+p {
+  font-weight: 400;
+}
