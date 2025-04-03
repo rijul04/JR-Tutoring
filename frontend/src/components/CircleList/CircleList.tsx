@@ -10,7 +10,7 @@ export default function CircleList({ list }: Readonly<Props>) {
     <>
       <ul className={styles.list}>
         {list.map((element, index) => (
-          <li className={styles.listElement}>
+          <li key={index} className={styles.listElement}>
             <StepCircle number={index + 1} />
             <div>{element}</div>
           </li>

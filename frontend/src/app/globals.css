@@ -153,6 +153,11 @@ h4 {
   font-size: 2rem;
 }
 
+h5 {
+  font-weight: 500;
+}
+
 p {
   font-weight: 400;
+  color: #0a0a0a80;
 }

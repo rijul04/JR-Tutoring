@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter, Poppins } from "next/font/google";
 import Providers from "./providers";
 import Header from "@/components/Header/Header";
+import { Footer } from "@/components/Footer/Footer";
 
 export const metadata = {
   title: "JR Tutoring",
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           <main>{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>

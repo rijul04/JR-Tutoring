@@ -22,7 +22,7 @@ export default function Home() {
         customHeight={"80vh"}
         className={styles.basicText}
       >
-        <p>Looking for a new Tutor?</p>
+        <h6>Looking for a new Tutor?</h6>
         <h3>Start Learning today with us at JR Tutoring!</h3>
       </Hero>
       <Hero
@@ -53,21 +53,21 @@ export default function Home() {
         <CircleList
           list={[
             <>
-              <Label>Let Us Know Your Needs</Label>
+              <h5>Let Us Know Your Needs</h5>
               <p>
                 We will then reach out to you and the tutee to have a short
                 meeting to really get to know the tutee.
               </p>
             </>,
             <>
-              <Label>We Will Match You With The Perfect Tutor</Label>
+              <h5>We Will Match You With The Perfect Tutor</h5>
               <p>
                 The tutee will have a free lesson from the tutor that we find to
                 check if the tutor and tutee match.
               </p>
             </>,
             <>
-              <Label>From here, Ready, Set, GO</Label>
+              <h5>From here, Ready, Set, GO</h5>
               <p>The tutee starts to improve in their subject!</p>
             </>,
           ]}
