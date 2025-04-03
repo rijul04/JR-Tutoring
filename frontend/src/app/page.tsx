@@ -14,7 +14,11 @@ import CircleList from "@/components/CircleList/CircleList";
 export default function Home() {
   return (
     <div className={styles.page}>
-      <Hero background="/images/TutorHome.png" className={styles.basicText}>
+      <Hero
+        background="/images/TutorHome.png"
+        customHeight={"80vh"}
+        className={styles.basicText}
+      >
         <p>Looking for a new Tutor?</p>
         <h3>Start Learning today with us at JR Tutoring!</h3>
       </Hero>
