@@ -9,6 +9,6 @@
 }
 
 .children {
-  max-width: min(65%, 100vw);
+  max-width: min(55%, 100vw);
   padding: 6rem;
 }
