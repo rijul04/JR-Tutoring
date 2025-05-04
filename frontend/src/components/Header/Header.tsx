@@ -17,8 +17,8 @@ import { Menu } from "lucide-react";
 export default function Header() {
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Courses", href: "/courses" },
-    { name: "Our Teachers", href: "/teachers" },
+    // { name: "Courses", href: "/courses" },
+    { name: "Our Teachers", href: "/our-teachers" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];

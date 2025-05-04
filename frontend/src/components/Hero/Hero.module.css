@@ -1,8 +1,6 @@
 .hero {
   background-size: cover;
   background-position: center;
-  /* min-height: 50vh; */
-  /* padding: 6rem; */
   align-items: center;
   justify-content: center;
   display: flex;
