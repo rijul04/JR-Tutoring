@@ -1,14 +1,15 @@
 .hero {
   background-size: cover;
   background-position: center;
-  min-height: 50vh;
+  /* min-height: 50vh; */
+  padding: 6rem;
   align-items: center;
   justify-content: center;
   display: flex;
 }
 
 .children {
-  max-width: min(85%, 100vw);
+  max-width: min(75%, 100vw);
   padding-top: 2.5%;
   padding-bottom: 2.5%;
 }

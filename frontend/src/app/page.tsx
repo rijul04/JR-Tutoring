@@ -16,7 +16,7 @@ import { IconCircle } from "@/features/icons/components/IconCircle/IconCircle";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <section>
       <Hero
         background="/images/TutorHome.png"
         customHeight={"80vh"}
@@ -110,6 +110,6 @@ export default function Home() {
           </p>
         </div>
       </Hero>
-    </div>
+    </section>
   );
 }
