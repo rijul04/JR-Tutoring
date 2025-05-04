@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import StepCircle from "@/components/CircleList/CircleList";
 import CircleList from "@/components/CircleList/CircleList";
 import { IconCircle } from "@/features/icons/components/IconCircle/IconCircle";
+import SignUpAdvert from "@/components/SignUpAdvert/SignUpAdvert";
 
 // once done with this stuff need to use a different component library that doesnt use tailwind as dont like it but for now using it is fine to do the small stuff
 
@@ -27,6 +28,7 @@ export default function Home() {
       </Hero>
       <Hero
         background="/images/BasicBackground1.png"
+        customHeight={"45vh"}
         className={styles.basicGrid}
       >
         <SubjectCard code="GCSE / A Level" subject="Mathematics" />
@@ -75,6 +77,7 @@ export default function Home() {
       </Hero>
       <Hero
         background="/images/BasicBackground3.jpg"
+        customHeight={"36vh"}
         className={styles.basicGrid}
       >
         <div>
@@ -109,6 +112,9 @@ export default function Home() {
             beatae vitae dicta sunt explicabo.
           </p>
         </div>
+      </Hero>
+      <Hero background="/images/BasicBackground3.jpg">
+        <SignUpAdvert />
       </Hero>
     </section>
   );

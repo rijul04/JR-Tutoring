@@ -2,7 +2,7 @@
   background-size: cover;
   background-position: center;
   /* min-height: 50vh; */
-  padding: 6rem;
+  /* padding: 6rem; */
   align-items: center;
   justify-content: center;
   display: flex;
@@ -10,6 +10,5 @@
 
 .children {
   max-width: min(65%, 100vw);
-  padding-top: 2.5%;
-  padding-bottom: 2.5%;
+  padding: 6rem;
 }

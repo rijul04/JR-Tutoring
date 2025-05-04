@@ -1,0 +1,27 @@
+.footer {
+  width: 100%;
+  background-color: #323f44;
+  color: #ccc;
+  padding: 1.5rem 0;
+  margin-top: auto;
+}
+
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footerLink {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+}
