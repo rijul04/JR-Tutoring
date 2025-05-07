@@ -2,19 +2,19 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 import uuid
 
-# --- Custom User model ---
 
 class User(AbstractUser):
     USER_ROLES = (
         ("tutor", "Tutor"),
         ("tutee", "Tutee"),
     )
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     role = models.CharField(max_length=10, choices=USER_ROLES)
 
     def __str__(self):
         return self.get_full_name() or self.username
 
-# --- Subject model ---
 
 class Subject(models.Model):
     LEVEL_CHOICES = (
@@ -28,34 +28,50 @@ class Subject(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.get_level_display()})"
-
-# --- Abstract base profile for shared fields ---
-
-class BaseProfile(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bio = models.CharField(max_length=255, blank=True)
-    dob = models.DateField()
-
+    
     class Meta:
-        abstract = True  # 🚨 No DB table will be created for BaseProfile
+        constraints = [
+            models.UniqueConstraint(
+                fields=['name', 'level'],
+                name='unique_subject_name_and_level'
+            ),
+        ]
 
-# --- Tutor profile ---
-
-class TutorProfile(BaseProfile):
+class TutorProfile(models.Model):
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE, related_name='tutor_profile')
     image = models.TextField(blank=True)  # base64 image
     education = models.CharField(max_length=255, blank=True)
     hourly_rate = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    subjects = models.ManyToManyField(Subject, blank=True, related_name="tutors")
+    tutees = models.ManyToManyField("TuteeProfile", blank=True, related_name="tutees")
+    subjects = models.ManyToManyField(Subject, blank=True, related_name="subjects")
+    bio = models.CharField(max_length=255, blank=True)
+
+
 
     def __str__(self):
         return f"Tutor: {self.user.get_full_name() or self.user.username}"
+    
 
-# --- Tutee profile ---
+    def save(self, *args, **kwargs):
+        if self._state.adding and self.user.role != "tutor":
+            self.user.role = "tutor"
+            self.user.save()
+        super().save(*args, **kwargs)
 
-class TuteeProfile(BaseProfile):
+
+class TuteeProfile(models.Model):
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE, related_name='tutee_profile')
+
     learning_goals = models.TextField(blank=True)
-    tutor = models.ManyToManyField(TutorProfile, blank=True, related_name="tutees")
+    tutor = models.ManyToManyField(TutorProfile, blank=True, related_name="tutors")
+    dob = models.DateField()
+
 
     def __str__(self):
         return f"Tutee: {self.user.get_full_name() or self.user.username}"
+
+    def save(self, *args, **kwargs):
+        if self._state.adding and self.user.role != "tutee":
+            self.user.role = "tutee"
+            self.user.save()
+        super().save(*args, **kwargs)
