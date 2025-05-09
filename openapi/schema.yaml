@@ -497,8 +497,522 @@ paths:
               schema:
                 $ref: '#/components/schemas/TokenRefresh'
           description: ''
+  /api/users/subjects/:
+    get:
+      operationId: users_subjects_list
+      tags:
+      - users
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubjectRW'
+          description: ''
+    post:
+      operationId: users_subjects_create
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubjectRW'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SubjectRW'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SubjectRW'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectRW'
+          description: ''
+  /api/users/subjects/{id}/:
+    get:
+      operationId: users_subjects_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this subject.
+        required: true
+      tags:
+      - users
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectRW'
+          description: ''
+    put:
+      operationId: users_subjects_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this subject.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubjectRW'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SubjectRW'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SubjectRW'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectRW'
+          description: ''
+    patch:
+      operationId: users_subjects_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this subject.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedSubjectRW'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedSubjectRW'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedSubjectRW'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectRW'
+          description: ''
+    delete:
+      operationId: users_subjects_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this subject.
+        required: true
+      tags:
+      - users
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/tutees/:
+    get:
+      operationId: users_tutees_list
+      tags:
+      - users
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TuteeProfileRead'
+          description: ''
+    post:
+      operationId: users_tutees_create
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TuteeProfileWrite'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TuteeProfileWrite'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TuteeProfileWrite'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TuteeProfileWrite'
+          description: ''
+  /api/users/tutees/{user}/:
+    get:
+      operationId: users_tutees_retrieve
+      parameters:
+      - in: path
+        name: user
+        schema:
+          type: string
+          format: uuid
+        description: A unique value identifying this tutee profile.
+        required: true
+      tags:
+      - users
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TuteeProfileRead'
+          description: ''
+    put:
+      operationId: users_tutees_update
+      parameters:
+      - in: path
+        name: user
+        schema:
+          type: string
+          format: uuid
+        description: A unique value identifying this tutee profile.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TuteeProfileWrite'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TuteeProfileWrite'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TuteeProfileWrite'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TuteeProfileWrite'
+          description: ''
+    patch:
+      operationId: users_tutees_partial_update
+      parameters:
+      - in: path
+        name: user
+        schema:
+          type: string
+          format: uuid
+        description: A unique value identifying this tutee profile.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTuteeProfileWrite'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTuteeProfileWrite'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTuteeProfileWrite'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TuteeProfileWrite'
+          description: ''
+    delete:
+      operationId: users_tutees_destroy
+      parameters:
+      - in: path
+        name: user
+        schema:
+          type: string
+          format: uuid
+        description: A unique value identifying this tutee profile.
+        required: true
+      tags:
+      - users
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/tutors/:
+    get:
+      operationId: users_tutors_list
+      tags:
+      - users
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TutorProfileRead'
+          description: ''
+    post:
+      operationId: users_tutors_create
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TutorProfileWrite'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TutorProfileWrite'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TutorProfileWrite'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TutorProfileWrite'
+          description: ''
+  /api/users/tutors/{user}/:
+    get:
+      operationId: users_tutors_retrieve
+      parameters:
+      - in: path
+        name: user
+        schema:
+          type: string
+          format: uuid
+        description: A unique value identifying this tutor profile.
+        required: true
+      tags:
+      - users
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TutorProfileRead'
+          description: ''
+    put:
+      operationId: users_tutors_update
+      parameters:
+      - in: path
+        name: user
+        schema:
+          type: string
+          format: uuid
+        description: A unique value identifying this tutor profile.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TutorProfileWrite'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TutorProfileWrite'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TutorProfileWrite'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TutorProfileWrite'
+          description: ''
+    patch:
+      operationId: users_tutors_partial_update
+      parameters:
+      - in: path
+        name: user
+        schema:
+          type: string
+          format: uuid
+        description: A unique value identifying this tutor profile.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTutorProfileWrite'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTutorProfileWrite'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTutorProfileWrite'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TutorProfileWrite'
+          description: ''
+    delete:
+      operationId: users_tutors_destroy
+      parameters:
+      - in: path
+        name: user
+        schema:
+          type: string
+          format: uuid
+        description: A unique value identifying this tutor profile.
+        required: true
+      tags:
+      - users
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/tutors/summary/:
+    get:
+      operationId: users_tutors_summary_retrieve
+      tags:
+      - users
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TutorProfileWrite'
+          description: ''
+  /api/users/users/:
+    get:
+      operationId: users_users_list
+      tags:
+      - users
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserRW'
+          description: ''
+  /api/users/users/{id}/:
+    get:
+      operationId: users_users_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - users
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRW'
+          description: ''
 components:
   schemas:
+    LevelEnum:
+      enum:
+      - primary
+      - gcse
+      - alevel
+      - university
+      type: string
+      description: |-
+        * `primary` - Primary
+        * `gcse` - GCSE
+        * `alevel` - A-Level
+        * `university` - University
+    PatchedSubjectRW:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        level:
+          $ref: '#/components/schemas/LevelEnum'
     PatchedTestModel:
       type: object
       properties:
@@ -517,6 +1031,99 @@ components:
         name:
           type: string
           maxLength: 1000
+    PatchedTuteeProfileWrite:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        first_name:
+          type: string
+          writeOnly: true
+        last_name:
+          type: string
+          writeOnly: true
+        learning_goals:
+          type: string
+        tutors:
+          type: array
+          items:
+            type: string
+            format: uuid
+            nullable: true
+        dob:
+          type: string
+          format: date
+    PatchedTutorProfileWrite:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        first_name:
+          type: string
+          writeOnly: true
+        last_name:
+          type: string
+          writeOnly: true
+        image:
+          type: string
+        education:
+          type: string
+          maxLength: 255
+        hourly_rate:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,2})?$
+          nullable: true
+        subjects:
+          type: array
+          items:
+            type: string
+            format: uuid
+        tutees:
+          type: array
+          items:
+            type: string
+            format: uuid
+        bio:
+          type: string
+          maxLength: 255
+        dob:
+          type: string
+          format: date
+    RoleEnum:
+      enum:
+      - tutor
+      - tutee
+      type: string
+      description: |-
+        * `tutor` - Tutor
+        * `tutee` - Tutee
+    SubjectRW:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        level:
+          $ref: '#/components/schemas/LevelEnum'
+      required:
+      - id
+      - level
+      - name
     TestModel:
       type: object
       properties:
@@ -544,7 +1151,7 @@ components:
     TokenObtainPair:
       type: object
       properties:
-        username:
+        email:
           type: string
           writeOnly: true
         password:
@@ -558,9 +1165,9 @@ components:
           readOnly: true
       required:
       - access
+      - email
       - password
       - refresh
-      - username
     TokenRefresh:
       type: object
       properties:
@@ -573,6 +1180,173 @@ components:
       required:
       - access
       - refresh
+    TuteeProfileRead:
+      type: object
+      properties:
+        user:
+          allOf:
+          - $ref: '#/components/schemas/UserRW'
+          readOnly: true
+        learning_goals:
+          type: string
+        tutors:
+          type: array
+          items:
+            type: string
+            format: uuid
+        dob:
+          type: string
+          format: date
+      required:
+      - dob
+      - user
+    TuteeProfileWrite:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        first_name:
+          type: string
+          writeOnly: true
+        last_name:
+          type: string
+          writeOnly: true
+        learning_goals:
+          type: string
+        tutors:
+          type: array
+          items:
+            type: string
+            format: uuid
+            nullable: true
+        dob:
+          type: string
+          format: date
+      required:
+      - dob
+      - email
+      - password
+    TutorProfileRead:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        full_name:
+          type: string
+          readOnly: true
+        email:
+          type: string
+          format: email
+          readOnly: true
+        image:
+          type: string
+        education:
+          type: string
+          maxLength: 255
+        hourly_rate:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,2})?$
+          nullable: true
+        subjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubjectRW'
+          readOnly: true
+        tutees:
+          type: array
+          items:
+            $ref: '#/components/schemas/TuteeProfileRead'
+          readOnly: true
+        bio:
+          type: string
+          maxLength: 255
+        dob:
+          type: string
+          format: date
+      required:
+      - dob
+      - email
+      - full_name
+      - id
+      - subjects
+      - tutees
+    TutorProfileWrite:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        first_name:
+          type: string
+          writeOnly: true
+        last_name:
+          type: string
+          writeOnly: true
+        image:
+          type: string
+        education:
+          type: string
+          maxLength: 255
+        hourly_rate:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,2})?$
+          nullable: true
+        subjects:
+          type: array
+          items:
+            type: string
+            format: uuid
+        tutees:
+          type: array
+          items:
+            type: string
+            format: uuid
+        bio:
+          type: string
+          maxLength: 255
+        dob:
+          type: string
+          format: date
+      required:
+      - dob
+      - email
+      - password
+    UserRW:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        first_name:
+          type: string
+          maxLength: 30
+        last_name:
+          type: string
+          maxLength: 30
+        role:
+          $ref: '#/components/schemas/RoleEnum'
+      required:
+      - email
+      - id
+      - role
   securitySchemes:
     jwtAuth:
       type: http

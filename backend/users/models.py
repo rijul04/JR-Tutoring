@@ -1,19 +1,7 @@
+from django.utils import timezone
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 import uuid
-
-
-class User(AbstractUser):
-    USER_ROLES = (
-        ("tutor", "Tutor"),
-        ("tutee", "Tutee"),
-    )
-
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    role = models.CharField(max_length=10, choices=USER_ROLES)
-
-    def __str__(self):
-        return self.get_full_name() or self.username
 
 
 class Subject(models.Model):
@@ -23,6 +11,8 @@ class Subject(models.Model):
         ('alevel', 'A-Level'),
         ('university', 'University'),
     )
+    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=100)
     level = models.CharField(max_length=20, choices=LEVEL_CHOICES)
 
@@ -37,14 +27,56 @@ class Subject(models.Model):
             ),
         ]
 
+class UserManager(BaseUserManager):
+    def create_user(self, email, password, **extra_fields):
+        if not email:
+            raise ValueError("Email must be provided")
+        if not password:
+            raise ValueError("Password must be provided")
+        
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+    
+    def create_superuser(self, email, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        return self.create_user(email, password, **extra_fields)
+    
+class User(AbstractBaseUser, PermissionsMixin):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    email = models.EmailField(unique=True)
+    first_name = models.CharField(max_length=30, blank=True)
+    last_name = models.CharField(max_length=30, blank=True)
+    role = models.CharField(max_length=10, choices=[('tutor', 'Tutor'), ('tutee', 'Tutee')])
+    date_joined = models.DateTimeField(default=timezone.now)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+
+    objects = UserManager()
+
+    USERNAME_FIELD = 'email'
+
+    def __str__(self):
+        return self.email
+    
+    def get_full_name(self):
+        return f"{self.first_name} {self.last_name}".strip()
+
 class TutorProfile(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE, related_name='tutor_profile')
+
     image = models.TextField(blank=True)  # base64 image
     education = models.CharField(max_length=255, blank=True)
     hourly_rate = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    tutees = models.ManyToManyField("TuteeProfile", blank=True, related_name="tutees")
-    subjects = models.ManyToManyField(Subject, blank=True, related_name="subjects")
+
+    tutees = models.ManyToManyField("TuteeProfile", blank=True, null=True, related_name="tutees")
+
+    subjects = models.ManyToManyField(Subject, blank=True, null=True, related_name="subjects")
     bio = models.CharField(max_length=255, blank=True)
+    dob = models.DateField()
 
 
 
@@ -63,7 +95,7 @@ class TuteeProfile(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE, related_name='tutee_profile')
 
     learning_goals = models.TextField(blank=True)
-    tutor = models.ManyToManyField(TutorProfile, blank=True, related_name="tutors")
+    tutors = models.ManyToManyField(TutorProfile, blank=True, related_name="tutors")
     dob = models.DateField()
 
 

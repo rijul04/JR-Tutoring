@@ -13,13 +13,47 @@ export type { TestModelRetrieveQueryKey } from './hooks/test_modelHooks/useTestM
 export type { TestModelUpdateMutationKey } from './hooks/test_modelHooks/useTestModelUpdate.ts'
 export type { TokenCreateMutationKey } from './hooks/tokenHooks/useTokenCreate.ts'
 export type { TokenRefreshCreateMutationKey } from './hooks/tokenHooks/useTokenRefreshCreate.ts'
+export type { UsersSubjectsCreateMutationKey } from './hooks/usersHooks/useUsersSubjectsCreate.ts'
+export type { UsersSubjectsDestroyMutationKey } from './hooks/usersHooks/useUsersSubjectsDestroy.ts'
+export type { UsersSubjectsListQueryKey } from './hooks/usersHooks/useUsersSubjectsList.ts'
+export type { UsersSubjectsPartialUpdateMutationKey } from './hooks/usersHooks/useUsersSubjectsPartialUpdate.ts'
+export type { UsersSubjectsRetrieveQueryKey } from './hooks/usersHooks/useUsersSubjectsRetrieve.ts'
+export type { UsersSubjectsUpdateMutationKey } from './hooks/usersHooks/useUsersSubjectsUpdate.ts'
+export type { UsersTuteesCreateMutationKey } from './hooks/usersHooks/useUsersTuteesCreate.ts'
+export type { UsersTuteesDestroyMutationKey } from './hooks/usersHooks/useUsersTuteesDestroy.ts'
+export type { UsersTuteesListQueryKey } from './hooks/usersHooks/useUsersTuteesList.ts'
+export type { UsersTuteesPartialUpdateMutationKey } from './hooks/usersHooks/useUsersTuteesPartialUpdate.ts'
+export type { UsersTuteesRetrieveQueryKey } from './hooks/usersHooks/useUsersTuteesRetrieve.ts'
+export type { UsersTuteesUpdateMutationKey } from './hooks/usersHooks/useUsersTuteesUpdate.ts'
+export type { UsersTutorsCreateMutationKey } from './hooks/usersHooks/useUsersTutorsCreate.ts'
+export type { UsersTutorsDestroyMutationKey } from './hooks/usersHooks/useUsersTutorsDestroy.ts'
+export type { UsersTutorsListQueryKey } from './hooks/usersHooks/useUsersTutorsList.ts'
+export type { UsersTutorsPartialUpdateMutationKey } from './hooks/usersHooks/useUsersTutorsPartialUpdate.ts'
+export type { UsersTutorsRetrieveQueryKey } from './hooks/usersHooks/useUsersTutorsRetrieve.ts'
+export type { UsersTutorsSummaryRetrieveQueryKey } from './hooks/usersHooks/useUsersTutorsSummaryRetrieve.ts'
+export type { UsersTutorsUpdateMutationKey } from './hooks/usersHooks/useUsersTutorsUpdate.ts'
+export type { UsersUsersListQueryKey } from './hooks/usersHooks/useUsersUsersList.ts'
+export type { UsersUsersRetrieveQueryKey } from './hooks/usersHooks/useUsersUsersRetrieve.ts'
 export type {
+  LevelEnumEnum,
+  LevelEnum,
+  PatchedSubjectRW,
   PatchedTestModel,
   PatchedTestModel2,
+  PatchedTuteeProfileWrite,
+  PatchedTutorProfileWrite,
+  RoleEnumEnum,
+  RoleEnum,
+  SubjectRW,
   TestModel,
   TestModel2,
   TokenObtainPair,
   TokenRefresh,
+  TuteeProfileRead,
+  TuteeProfileWrite,
+  TutorProfileRead,
+  TutorProfileWrite,
+  UserRW,
   SchemaRetrieveQueryParamsFormatEnum,
   SchemaRetrieveQueryParamsLangEnum,
   SchemaRetrieveQueryParams,
@@ -84,6 +118,91 @@ export type {
   TokenRefreshCreateMutationRequest,
   TokenRefreshCreateMutationResponse,
   TokenRefreshCreateMutation,
+  UsersSubjectsList200,
+  UsersSubjectsListQueryResponse,
+  UsersSubjectsListQuery,
+  UsersSubjectsCreate201,
+  UsersSubjectsCreateMutationRequest,
+  UsersSubjectsCreateMutationResponse,
+  UsersSubjectsCreateMutation,
+  UsersSubjectsRetrievePathParams,
+  UsersSubjectsRetrieve200,
+  UsersSubjectsRetrieveQueryResponse,
+  UsersSubjectsRetrieveQuery,
+  UsersSubjectsUpdatePathParams,
+  UsersSubjectsUpdate200,
+  UsersSubjectsUpdateMutationRequest,
+  UsersSubjectsUpdateMutationResponse,
+  UsersSubjectsUpdateMutation,
+  UsersSubjectsPartialUpdatePathParams,
+  UsersSubjectsPartialUpdate200,
+  UsersSubjectsPartialUpdateMutationRequest,
+  UsersSubjectsPartialUpdateMutationResponse,
+  UsersSubjectsPartialUpdateMutation,
+  UsersSubjectsDestroyPathParams,
+  UsersSubjectsDestroy204,
+  UsersSubjectsDestroyMutationResponse,
+  UsersSubjectsDestroyMutation,
+  UsersTuteesList200,
+  UsersTuteesListQueryResponse,
+  UsersTuteesListQuery,
+  UsersTuteesCreate201,
+  UsersTuteesCreateMutationRequest,
+  UsersTuteesCreateMutationResponse,
+  UsersTuteesCreateMutation,
+  UsersTuteesRetrievePathParams,
+  UsersTuteesRetrieve200,
+  UsersTuteesRetrieveQueryResponse,
+  UsersTuteesRetrieveQuery,
+  UsersTuteesUpdatePathParams,
+  UsersTuteesUpdate200,
+  UsersTuteesUpdateMutationRequest,
+  UsersTuteesUpdateMutationResponse,
+  UsersTuteesUpdateMutation,
+  UsersTuteesPartialUpdatePathParams,
+  UsersTuteesPartialUpdate200,
+  UsersTuteesPartialUpdateMutationRequest,
+  UsersTuteesPartialUpdateMutationResponse,
+  UsersTuteesPartialUpdateMutation,
+  UsersTuteesDestroyPathParams,
+  UsersTuteesDestroy204,
+  UsersTuteesDestroyMutationResponse,
+  UsersTuteesDestroyMutation,
+  UsersTutorsList200,
+  UsersTutorsListQueryResponse,
+  UsersTutorsListQuery,
+  UsersTutorsCreate201,
+  UsersTutorsCreateMutationRequest,
+  UsersTutorsCreateMutationResponse,
+  UsersTutorsCreateMutation,
+  UsersTutorsRetrievePathParams,
+  UsersTutorsRetrieve200,
+  UsersTutorsRetrieveQueryResponse,
+  UsersTutorsRetrieveQuery,
+  UsersTutorsUpdatePathParams,
+  UsersTutorsUpdate200,
+  UsersTutorsUpdateMutationRequest,
+  UsersTutorsUpdateMutationResponse,
+  UsersTutorsUpdateMutation,
+  UsersTutorsPartialUpdatePathParams,
+  UsersTutorsPartialUpdate200,
+  UsersTutorsPartialUpdateMutationRequest,
+  UsersTutorsPartialUpdateMutationResponse,
+  UsersTutorsPartialUpdateMutation,
+  UsersTutorsDestroyPathParams,
+  UsersTutorsDestroy204,
+  UsersTutorsDestroyMutationResponse,
+  UsersTutorsDestroyMutation,
+  UsersTutorsSummaryRetrieve200,
+  UsersTutorsSummaryRetrieveQueryResponse,
+  UsersTutorsSummaryRetrieveQuery,
+  UsersUsersList200,
+  UsersUsersListQueryResponse,
+  UsersUsersListQuery,
+  UsersUsersRetrievePathParams,
+  UsersUsersRetrieve200,
+  UsersUsersRetrieveQueryResponse,
+  UsersUsersRetrieveQuery,
 } from './types/types.ts'
 export { schemaRetrieveQueryKey, schemaRetrieve, schemaRetrieveQueryOptions, useSchemaRetrieve } from './hooks/schemaHooks/useSchemaRetrieve.ts'
 export { testModel2CreateMutationKey, testModel2Create, useTestModel2Create } from './hooks/test_model_2Hooks/useTestModel2Create.ts'
@@ -114,4 +233,54 @@ export {
 export { testModelUpdateMutationKey, testModelUpdate, useTestModelUpdate } from './hooks/test_modelHooks/useTestModelUpdate.ts'
 export { tokenCreateMutationKey, tokenCreate, useTokenCreate } from './hooks/tokenHooks/useTokenCreate.ts'
 export { tokenRefreshCreateMutationKey, tokenRefreshCreate, useTokenRefreshCreate } from './hooks/tokenHooks/useTokenRefreshCreate.ts'
-export { schemaRetrieveQueryParamsFormatEnum, schemaRetrieveQueryParamsLangEnum } from './types/types.ts'
+export { usersSubjectsCreateMutationKey, usersSubjectsCreate, useUsersSubjectsCreate } from './hooks/usersHooks/useUsersSubjectsCreate.ts'
+export { usersSubjectsDestroyMutationKey, usersSubjectsDestroy, useUsersSubjectsDestroy } from './hooks/usersHooks/useUsersSubjectsDestroy.ts'
+export { usersSubjectsListQueryKey, usersSubjectsList, usersSubjectsListQueryOptions, useUsersSubjectsList } from './hooks/usersHooks/useUsersSubjectsList.ts'
+export {
+  usersSubjectsPartialUpdateMutationKey,
+  usersSubjectsPartialUpdate,
+  useUsersSubjectsPartialUpdate,
+} from './hooks/usersHooks/useUsersSubjectsPartialUpdate.ts'
+export {
+  usersSubjectsRetrieveQueryKey,
+  usersSubjectsRetrieve,
+  usersSubjectsRetrieveQueryOptions,
+  useUsersSubjectsRetrieve,
+} from './hooks/usersHooks/useUsersSubjectsRetrieve.ts'
+export { usersSubjectsUpdateMutationKey, usersSubjectsUpdate, useUsersSubjectsUpdate } from './hooks/usersHooks/useUsersSubjectsUpdate.ts'
+export { usersTuteesCreateMutationKey, usersTuteesCreate, useUsersTuteesCreate } from './hooks/usersHooks/useUsersTuteesCreate.ts'
+export { usersTuteesDestroyMutationKey, usersTuteesDestroy, useUsersTuteesDestroy } from './hooks/usersHooks/useUsersTuteesDestroy.ts'
+export { usersTuteesListQueryKey, usersTuteesList, usersTuteesListQueryOptions, useUsersTuteesList } from './hooks/usersHooks/useUsersTuteesList.ts'
+export { usersTuteesPartialUpdateMutationKey, usersTuteesPartialUpdate, useUsersTuteesPartialUpdate } from './hooks/usersHooks/useUsersTuteesPartialUpdate.ts'
+export {
+  usersTuteesRetrieveQueryKey,
+  usersTuteesRetrieve,
+  usersTuteesRetrieveQueryOptions,
+  useUsersTuteesRetrieve,
+} from './hooks/usersHooks/useUsersTuteesRetrieve.ts'
+export { usersTuteesUpdateMutationKey, usersTuteesUpdate, useUsersTuteesUpdate } from './hooks/usersHooks/useUsersTuteesUpdate.ts'
+export { usersTutorsCreateMutationKey, usersTutorsCreate, useUsersTutorsCreate } from './hooks/usersHooks/useUsersTutorsCreate.ts'
+export { usersTutorsDestroyMutationKey, usersTutorsDestroy, useUsersTutorsDestroy } from './hooks/usersHooks/useUsersTutorsDestroy.ts'
+export { usersTutorsListQueryKey, usersTutorsList, usersTutorsListQueryOptions, useUsersTutorsList } from './hooks/usersHooks/useUsersTutorsList.ts'
+export { usersTutorsPartialUpdateMutationKey, usersTutorsPartialUpdate, useUsersTutorsPartialUpdate } from './hooks/usersHooks/useUsersTutorsPartialUpdate.ts'
+export {
+  usersTutorsRetrieveQueryKey,
+  usersTutorsRetrieve,
+  usersTutorsRetrieveQueryOptions,
+  useUsersTutorsRetrieve,
+} from './hooks/usersHooks/useUsersTutorsRetrieve.ts'
+export {
+  usersTutorsSummaryRetrieveQueryKey,
+  usersTutorsSummaryRetrieve,
+  usersTutorsSummaryRetrieveQueryOptions,
+  useUsersTutorsSummaryRetrieve,
+} from './hooks/usersHooks/useUsersTutorsSummaryRetrieve.ts'
+export { usersTutorsUpdateMutationKey, usersTutorsUpdate, useUsersTutorsUpdate } from './hooks/usersHooks/useUsersTutorsUpdate.ts'
+export { usersUsersListQueryKey, usersUsersList, usersUsersListQueryOptions, useUsersUsersList } from './hooks/usersHooks/useUsersUsersList.ts'
+export {
+  usersUsersRetrieveQueryKey,
+  usersUsersRetrieve,
+  usersUsersRetrieveQueryOptions,
+  useUsersUsersRetrieve,
+} from './hooks/usersHooks/useUsersUsersRetrieve.ts'
+export { levelEnumEnum, roleEnumEnum, schemaRetrieveQueryParamsFormatEnum, schemaRetrieveQueryParamsLangEnum } from './types/types.ts'

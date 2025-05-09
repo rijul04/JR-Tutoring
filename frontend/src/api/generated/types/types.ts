@@ -1,5 +1,35 @@
 ;`Kubb: Generated types`
 
+export const levelEnumEnum = {
+  primary: 'primary',
+  gcse: 'gcse',
+  alevel: 'alevel',
+  university: 'university',
+} as const
+
+export type LevelEnumEnum = (typeof levelEnumEnum)[keyof typeof levelEnumEnum]
+
+/**
+ * @description * `primary` - Primary\n* `gcse` - GCSE\n* `alevel` - A-Level\n* `university` - University
+ */
+export type LevelEnum = LevelEnumEnum
+
+export type PatchedSubjectRW = {
+  /**
+   * @type string | undefined, uuid
+   */
+  readonly id?: string | undefined
+  /**
+   * @maxLength 100
+   * @type string | undefined
+   */
+  name?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  level?: LevelEnum | undefined
+}
+
 export type PatchedTestModel = {
   /**
    * @type integer | undefined
@@ -22,6 +52,115 @@ export type PatchedTestModel2 = {
    * @type string | undefined
    */
   name?: string | undefined
+}
+
+export type PatchedTuteeProfileWrite = {
+  /**
+   * @type string | undefined, email
+   */
+  email?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  password?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  first_name?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  last_name?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  learning_goals?: string | undefined
+  /**
+   * @type array | undefined
+   */
+  tutors?: string[] | undefined
+  /**
+   * @type string | undefined, date
+   */
+  dob?: string | undefined
+}
+
+export type PatchedTutorProfileWrite = {
+  /**
+   * @type string | undefined, email
+   */
+  email?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  password?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  first_name?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  last_name?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  image?: string | undefined
+  /**
+   * @maxLength 255
+   * @type string | undefined
+   */
+  education?: string | undefined
+  /**
+   * @pattern ^-?\d{0,4}(?:\.\d{0,2})?$
+   * @type string, decimal
+   */
+  hourly_rate?: (string | null) | undefined
+  /**
+   * @type array | undefined
+   */
+  subjects?: string[] | undefined
+  /**
+   * @type array | undefined
+   */
+  tutees?: string[] | undefined
+  /**
+   * @maxLength 255
+   * @type string | undefined
+   */
+  bio?: string | undefined
+  /**
+   * @type string | undefined, date
+   */
+  dob?: string | undefined
+}
+
+export const roleEnumEnum = {
+  tutor: 'tutor',
+  tutee: 'tutee',
+} as const
+
+export type RoleEnumEnum = (typeof roleEnumEnum)[keyof typeof roleEnumEnum]
+
+/**
+ * @description * `tutor` - Tutor\n* `tutee` - Tutee
+ */
+export type RoleEnum = RoleEnumEnum
+
+export type SubjectRW = {
+  /**
+   * @type string, uuid
+   */
+  readonly id: string
+  /**
+   * @maxLength 100
+   * @type string
+   */
+  name: string
+  /**
+   * @type string
+   */
+  level: LevelEnum
 }
 
 export type TestModel = {
@@ -52,7 +191,7 @@ export type TokenObtainPair = {
   /**
    * @type string
    */
-  username: string
+  email: string
   /**
    * @type string
    */
@@ -76,6 +215,175 @@ export type TokenRefresh = {
    * @type string
    */
   refresh: string
+}
+
+export type TuteeProfileRead = {
+  readonly user: UserRW
+  /**
+   * @type string | undefined
+   */
+  learning_goals?: string | undefined
+  /**
+   * @type array | undefined
+   */
+  tutors?: string[] | undefined
+  /**
+   * @type string, date
+   */
+  dob: string
+}
+
+export type TuteeProfileWrite = {
+  /**
+   * @type string, email
+   */
+  email: string
+  /**
+   * @type string
+   */
+  password: string
+  /**
+   * @type string | undefined
+   */
+  first_name?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  last_name?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  learning_goals?: string | undefined
+  /**
+   * @type array | undefined
+   */
+  tutors?: string[] | undefined
+  /**
+   * @type string, date
+   */
+  dob: string
+}
+
+export type TutorProfileRead = {
+  /**
+   * @type string, uuid
+   */
+  readonly id: string
+  /**
+   * @type string
+   */
+  readonly full_name: string
+  /**
+   * @type string, email
+   */
+  readonly email: string
+  /**
+   * @type string | undefined
+   */
+  image?: string | undefined
+  /**
+   * @maxLength 255
+   * @type string | undefined
+   */
+  education?: string | undefined
+  /**
+   * @pattern ^-?\d{0,4}(?:\.\d{0,2})?$
+   * @type string, decimal
+   */
+  hourly_rate?: (string | null) | undefined
+  /**
+   * @type array
+   */
+  readonly subjects: SubjectRW[]
+  /**
+   * @type array
+   */
+  readonly tutees: TuteeProfileRead[]
+  /**
+   * @maxLength 255
+   * @type string | undefined
+   */
+  bio?: string | undefined
+  /**
+   * @type string, date
+   */
+  dob: string
+}
+
+export type TutorProfileWrite = {
+  /**
+   * @type string, email
+   */
+  email: string
+  /**
+   * @type string
+   */
+  password: string
+  /**
+   * @type string | undefined
+   */
+  first_name?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  last_name?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  image?: string | undefined
+  /**
+   * @maxLength 255
+   * @type string | undefined
+   */
+  education?: string | undefined
+  /**
+   * @pattern ^-?\d{0,4}(?:\.\d{0,2})?$
+   * @type string, decimal
+   */
+  hourly_rate?: (string | null) | undefined
+  /**
+   * @type array | undefined
+   */
+  subjects?: string[] | undefined
+  /**
+   * @type array | undefined
+   */
+  tutees?: string[] | undefined
+  /**
+   * @maxLength 255
+   * @type string | undefined
+   */
+  bio?: string | undefined
+  /**
+   * @type string, date
+   */
+  dob: string
+}
+
+export type UserRW = {
+  /**
+   * @type string, uuid
+   */
+  readonly id: string
+  /**
+   * @maxLength 254
+   * @type string, email
+   */
+  email: string
+  /**
+   * @maxLength 30
+   * @type string | undefined
+   */
+  first_name?: string | undefined
+  /**
+   * @maxLength 30
+   * @type string | undefined
+   */
+  last_name?: string | undefined
+  /**
+   * @type string
+   */
+  role: RoleEnum
 }
 
 export const schemaRetrieveQueryParamsFormatEnum = {
@@ -416,7 +724,7 @@ export type TestModel2DestroyMutation = {
   Errors: any
 }
 
-export type TokenCreate200 = Omit<NonNullable<TokenObtainPair>, 'username' | 'password'>
+export type TokenCreate200 = Omit<NonNullable<TokenObtainPair>, 'email' | 'password'>
 
 export type TokenCreateMutationRequest = Omit<NonNullable<TokenObtainPair>, 'access' | 'refresh'>
 
@@ -437,5 +745,347 @@ export type TokenRefreshCreateMutationResponse = TokenRefreshCreate200
 export type TokenRefreshCreateMutation = {
   Response: TokenRefreshCreate200
   Request: TokenRefreshCreateMutationRequest
+  Errors: any
+}
+
+export type UsersSubjectsList200 = SubjectRW[]
+
+export type UsersSubjectsListQueryResponse = UsersSubjectsList200
+
+export type UsersSubjectsListQuery = {
+  Response: UsersSubjectsList200
+  Errors: any
+}
+
+export type UsersSubjectsCreate201 = SubjectRW
+
+export type UsersSubjectsCreateMutationRequest = Omit<NonNullable<SubjectRW>, 'id'>
+
+export type UsersSubjectsCreateMutationResponse = UsersSubjectsCreate201
+
+export type UsersSubjectsCreateMutation = {
+  Response: UsersSubjectsCreate201
+  Request: UsersSubjectsCreateMutationRequest
+  Errors: any
+}
+
+export type UsersSubjectsRetrievePathParams = {
+  /**
+   * @description A UUID string identifying this subject.
+   * @type string, uuid
+   */
+  id: string
+}
+
+export type UsersSubjectsRetrieve200 = SubjectRW
+
+export type UsersSubjectsRetrieveQueryResponse = UsersSubjectsRetrieve200
+
+export type UsersSubjectsRetrieveQuery = {
+  Response: UsersSubjectsRetrieve200
+  PathParams: UsersSubjectsRetrievePathParams
+  Errors: any
+}
+
+export type UsersSubjectsUpdatePathParams = {
+  /**
+   * @description A UUID string identifying this subject.
+   * @type string, uuid
+   */
+  id: string
+}
+
+export type UsersSubjectsUpdate200 = SubjectRW
+
+export type UsersSubjectsUpdateMutationRequest = Omit<NonNullable<SubjectRW>, 'id'>
+
+export type UsersSubjectsUpdateMutationResponse = UsersSubjectsUpdate200
+
+export type UsersSubjectsUpdateMutation = {
+  Response: UsersSubjectsUpdate200
+  Request: UsersSubjectsUpdateMutationRequest
+  PathParams: UsersSubjectsUpdatePathParams
+  Errors: any
+}
+
+export type UsersSubjectsPartialUpdatePathParams = {
+  /**
+   * @description A UUID string identifying this subject.
+   * @type string, uuid
+   */
+  id: string
+}
+
+export type UsersSubjectsPartialUpdate200 = SubjectRW
+
+export type UsersSubjectsPartialUpdateMutationRequest = Omit<NonNullable<PatchedSubjectRW>, 'id'>
+
+export type UsersSubjectsPartialUpdateMutationResponse = UsersSubjectsPartialUpdate200
+
+export type UsersSubjectsPartialUpdateMutation = {
+  Response: UsersSubjectsPartialUpdate200
+  Request: UsersSubjectsPartialUpdateMutationRequest
+  PathParams: UsersSubjectsPartialUpdatePathParams
+  Errors: any
+}
+
+export type UsersSubjectsDestroyPathParams = {
+  /**
+   * @description A UUID string identifying this subject.
+   * @type string, uuid
+   */
+  id: string
+}
+
+/**
+ * @description No response body
+ */
+export type UsersSubjectsDestroy204 = unknown
+
+export type UsersSubjectsDestroyMutationResponse = UsersSubjectsDestroy204
+
+export type UsersSubjectsDestroyMutation = {
+  Response: UsersSubjectsDestroy204
+  PathParams: UsersSubjectsDestroyPathParams
+  Errors: any
+}
+
+export type UsersTuteesList200 = TuteeProfileRead[]
+
+export type UsersTuteesListQueryResponse = UsersTuteesList200
+
+export type UsersTuteesListQuery = {
+  Response: UsersTuteesList200
+  Errors: any
+}
+
+export type UsersTuteesCreate201 = Omit<NonNullable<TuteeProfileWrite>, 'email' | 'password' | 'first_name' | 'last_name'>
+
+export type UsersTuteesCreateMutationRequest = TuteeProfileWrite
+
+export type UsersTuteesCreateMutationResponse = UsersTuteesCreate201
+
+export type UsersTuteesCreateMutation = {
+  Response: UsersTuteesCreate201
+  Request: UsersTuteesCreateMutationRequest
+  Errors: any
+}
+
+export type UsersTuteesRetrievePathParams = {
+  /**
+   * @description A unique value identifying this tutee profile.
+   * @type string, uuid
+   */
+  user: string
+}
+
+export type UsersTuteesRetrieve200 = TuteeProfileRead
+
+export type UsersTuteesRetrieveQueryResponse = UsersTuteesRetrieve200
+
+export type UsersTuteesRetrieveQuery = {
+  Response: UsersTuteesRetrieve200
+  PathParams: UsersTuteesRetrievePathParams
+  Errors: any
+}
+
+export type UsersTuteesUpdatePathParams = {
+  /**
+   * @description A unique value identifying this tutee profile.
+   * @type string, uuid
+   */
+  user: string
+}
+
+export type UsersTuteesUpdate200 = Omit<NonNullable<TuteeProfileWrite>, 'email' | 'password' | 'first_name' | 'last_name'>
+
+export type UsersTuteesUpdateMutationRequest = TuteeProfileWrite
+
+export type UsersTuteesUpdateMutationResponse = UsersTuteesUpdate200
+
+export type UsersTuteesUpdateMutation = {
+  Response: UsersTuteesUpdate200
+  Request: UsersTuteesUpdateMutationRequest
+  PathParams: UsersTuteesUpdatePathParams
+  Errors: any
+}
+
+export type UsersTuteesPartialUpdatePathParams = {
+  /**
+   * @description A unique value identifying this tutee profile.
+   * @type string, uuid
+   */
+  user: string
+}
+
+export type UsersTuteesPartialUpdate200 = Omit<NonNullable<TuteeProfileWrite>, 'email' | 'password' | 'first_name' | 'last_name'>
+
+export type UsersTuteesPartialUpdateMutationRequest = PatchedTuteeProfileWrite
+
+export type UsersTuteesPartialUpdateMutationResponse = UsersTuteesPartialUpdate200
+
+export type UsersTuteesPartialUpdateMutation = {
+  Response: UsersTuteesPartialUpdate200
+  Request: UsersTuteesPartialUpdateMutationRequest
+  PathParams: UsersTuteesPartialUpdatePathParams
+  Errors: any
+}
+
+export type UsersTuteesDestroyPathParams = {
+  /**
+   * @description A unique value identifying this tutee profile.
+   * @type string, uuid
+   */
+  user: string
+}
+
+/**
+ * @description No response body
+ */
+export type UsersTuteesDestroy204 = unknown
+
+export type UsersTuteesDestroyMutationResponse = UsersTuteesDestroy204
+
+export type UsersTuteesDestroyMutation = {
+  Response: UsersTuteesDestroy204
+  PathParams: UsersTuteesDestroyPathParams
+  Errors: any
+}
+
+export type UsersTutorsList200 = TutorProfileRead[]
+
+export type UsersTutorsListQueryResponse = UsersTutorsList200
+
+export type UsersTutorsListQuery = {
+  Response: UsersTutorsList200
+  Errors: any
+}
+
+export type UsersTutorsCreate201 = Omit<NonNullable<TutorProfileWrite>, 'email' | 'password' | 'first_name' | 'last_name'>
+
+export type UsersTutorsCreateMutationRequest = TutorProfileWrite
+
+export type UsersTutorsCreateMutationResponse = UsersTutorsCreate201
+
+export type UsersTutorsCreateMutation = {
+  Response: UsersTutorsCreate201
+  Request: UsersTutorsCreateMutationRequest
+  Errors: any
+}
+
+export type UsersTutorsRetrievePathParams = {
+  /**
+   * @description A unique value identifying this tutor profile.
+   * @type string, uuid
+   */
+  user: string
+}
+
+export type UsersTutorsRetrieve200 = TutorProfileRead
+
+export type UsersTutorsRetrieveQueryResponse = UsersTutorsRetrieve200
+
+export type UsersTutorsRetrieveQuery = {
+  Response: UsersTutorsRetrieve200
+  PathParams: UsersTutorsRetrievePathParams
+  Errors: any
+}
+
+export type UsersTutorsUpdatePathParams = {
+  /**
+   * @description A unique value identifying this tutor profile.
+   * @type string, uuid
+   */
+  user: string
+}
+
+export type UsersTutorsUpdate200 = Omit<NonNullable<TutorProfileWrite>, 'email' | 'password' | 'first_name' | 'last_name'>
+
+export type UsersTutorsUpdateMutationRequest = TutorProfileWrite
+
+export type UsersTutorsUpdateMutationResponse = UsersTutorsUpdate200
+
+export type UsersTutorsUpdateMutation = {
+  Response: UsersTutorsUpdate200
+  Request: UsersTutorsUpdateMutationRequest
+  PathParams: UsersTutorsUpdatePathParams
+  Errors: any
+}
+
+export type UsersTutorsPartialUpdatePathParams = {
+  /**
+   * @description A unique value identifying this tutor profile.
+   * @type string, uuid
+   */
+  user: string
+}
+
+export type UsersTutorsPartialUpdate200 = Omit<NonNullable<TutorProfileWrite>, 'email' | 'password' | 'first_name' | 'last_name'>
+
+export type UsersTutorsPartialUpdateMutationRequest = PatchedTutorProfileWrite
+
+export type UsersTutorsPartialUpdateMutationResponse = UsersTutorsPartialUpdate200
+
+export type UsersTutorsPartialUpdateMutation = {
+  Response: UsersTutorsPartialUpdate200
+  Request: UsersTutorsPartialUpdateMutationRequest
+  PathParams: UsersTutorsPartialUpdatePathParams
+  Errors: any
+}
+
+export type UsersTutorsDestroyPathParams = {
+  /**
+   * @description A unique value identifying this tutor profile.
+   * @type string, uuid
+   */
+  user: string
+}
+
+/**
+ * @description No response body
+ */
+export type UsersTutorsDestroy204 = unknown
+
+export type UsersTutorsDestroyMutationResponse = UsersTutorsDestroy204
+
+export type UsersTutorsDestroyMutation = {
+  Response: UsersTutorsDestroy204
+  PathParams: UsersTutorsDestroyPathParams
+  Errors: any
+}
+
+export type UsersTutorsSummaryRetrieve200 = Omit<NonNullable<TutorProfileWrite>, 'email' | 'password' | 'first_name' | 'last_name'>
+
+export type UsersTutorsSummaryRetrieveQueryResponse = UsersTutorsSummaryRetrieve200
+
+export type UsersTutorsSummaryRetrieveQuery = {
+  Response: UsersTutorsSummaryRetrieve200
+  Errors: any
+}
+
+export type UsersUsersList200 = UserRW[]
+
+export type UsersUsersListQueryResponse = UsersUsersList200
+
+export type UsersUsersListQuery = {
+  Response: UsersUsersList200
+  Errors: any
+}
+
+export type UsersUsersRetrievePathParams = {
+  /**
+   * @description A UUID string identifying this user.
+   * @type string, uuid
+   */
+  id: string
+}
+
+export type UsersUsersRetrieve200 = UserRW
+
+export type UsersUsersRetrieveQueryResponse = UsersUsersRetrieve200
+
+export type UsersUsersRetrieveQuery = {
+  Response: UsersUsersRetrieve200
+  PathParams: UsersUsersRetrievePathParams
   Errors: any
 }
