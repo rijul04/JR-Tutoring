@@ -1,6 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card";
 import styles from "./SubjectCard.module.css";
-import { mergeClasses } from "@fluentui/react-components";
+import PopBaseCard from "@/components/PopBaseCard/PopBaseCard";
 
 type Props = {
   code: string;
@@ -10,12 +9,12 @@ type Props = {
 
 export default function subjectCard({ code, subject, tutorCount }: Props) {
   return (
-    <Card className={styles.card}>
-      <CardContent className={styles.content}>
+    <PopBaseCard>
+      <>
         <div className={styles.badge}>{code}</div>
         <h4 className={styles.language}>{subject}</h4>
         {/* <p className={styles.tutorCount}>{tutorCount} Tutors</p> */}
-      </CardContent>
-    </Card>
+      </>
+    </PopBaseCard>
   );
 }

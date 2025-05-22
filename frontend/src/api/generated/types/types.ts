@@ -310,6 +310,39 @@ export type TutorProfileRead = {
   dob: string
 }
 
+export type TutorProfileReadSummary = {
+  /**
+   * @type string, uuid
+   */
+  readonly id: string
+  /**
+   * @type string
+   */
+  readonly full_name: string
+  /**
+   * @type string, email
+   */
+  readonly email: string
+  /**
+   * @pattern ^-?\d{0,4}(?:\.\d{0,2})?$
+   * @type string, decimal
+   */
+  hourly_rate?: (string | null) | undefined
+  /**
+   * @type array
+   */
+  readonly subjects: SubjectRW[]
+  /**
+   * @maxLength 255
+   * @type string | undefined
+   */
+  bio?: string | undefined
+  /**
+   * @type string | undefined
+   */
+  image?: string | undefined
+}
+
 export type TutorProfileWrite = {
   /**
    * @type string, email
@@ -1054,12 +1087,12 @@ export type UsersTutorsDestroyMutation = {
   Errors: any
 }
 
-export type UsersTutorsSummaryRetrieve200 = Omit<NonNullable<TutorProfileWrite>, 'email' | 'password' | 'first_name' | 'last_name'>
+export type UsersTutorsSummaryList200 = TutorProfileReadSummary[]
 
-export type UsersTutorsSummaryRetrieveQueryResponse = UsersTutorsSummaryRetrieve200
+export type UsersTutorsSummaryListQueryResponse = UsersTutorsSummaryList200
 
-export type UsersTutorsSummaryRetrieveQuery = {
-  Response: UsersTutorsSummaryRetrieve200
+export type UsersTutorsSummaryListQuery = {
+  Response: UsersTutorsSummaryList200
   Errors: any
 }
 

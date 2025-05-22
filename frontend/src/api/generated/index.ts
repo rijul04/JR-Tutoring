@@ -30,7 +30,7 @@ export type { UsersTutorsDestroyMutationKey } from './hooks/usersHooks/useUsersT
 export type { UsersTutorsListQueryKey } from './hooks/usersHooks/useUsersTutorsList.ts'
 export type { UsersTutorsPartialUpdateMutationKey } from './hooks/usersHooks/useUsersTutorsPartialUpdate.ts'
 export type { UsersTutorsRetrieveQueryKey } from './hooks/usersHooks/useUsersTutorsRetrieve.ts'
-export type { UsersTutorsSummaryRetrieveQueryKey } from './hooks/usersHooks/useUsersTutorsSummaryRetrieve.ts'
+export type { UsersTutorsSummaryListQueryKey } from './hooks/usersHooks/useUsersTutorsSummaryList.ts'
 export type { UsersTutorsUpdateMutationKey } from './hooks/usersHooks/useUsersTutorsUpdate.ts'
 export type { UsersUsersListQueryKey } from './hooks/usersHooks/useUsersUsersList.ts'
 export type { UsersUsersRetrieveQueryKey } from './hooks/usersHooks/useUsersUsersRetrieve.ts'
@@ -52,6 +52,7 @@ export type {
   TuteeProfileRead,
   TuteeProfileWrite,
   TutorProfileRead,
+  TutorProfileReadSummary,
   TutorProfileWrite,
   UserRW,
   SchemaRetrieveQueryParamsFormatEnum,
@@ -193,9 +194,9 @@ export type {
   UsersTutorsDestroy204,
   UsersTutorsDestroyMutationResponse,
   UsersTutorsDestroyMutation,
-  UsersTutorsSummaryRetrieve200,
-  UsersTutorsSummaryRetrieveQueryResponse,
-  UsersTutorsSummaryRetrieveQuery,
+  UsersTutorsSummaryList200,
+  UsersTutorsSummaryListQueryResponse,
+  UsersTutorsSummaryListQuery,
   UsersUsersList200,
   UsersUsersListQueryResponse,
   UsersUsersListQuery,
@@ -270,11 +271,11 @@ export {
   useUsersTutorsRetrieve,
 } from './hooks/usersHooks/useUsersTutorsRetrieve.ts'
 export {
-  usersTutorsSummaryRetrieveQueryKey,
-  usersTutorsSummaryRetrieve,
-  usersTutorsSummaryRetrieveQueryOptions,
-  useUsersTutorsSummaryRetrieve,
-} from './hooks/usersHooks/useUsersTutorsSummaryRetrieve.ts'
+  usersTutorsSummaryListQueryKey,
+  usersTutorsSummaryList,
+  usersTutorsSummaryListQueryOptions,
+  useUsersTutorsSummaryList,
+} from './hooks/usersHooks/useUsersTutorsSummaryList.ts'
 export { usersTutorsUpdateMutationKey, usersTutorsUpdate, useUsersTutorsUpdate } from './hooks/usersHooks/useUsersTutorsUpdate.ts'
 export { usersUsersListQueryKey, usersUsersList, usersUsersListQueryOptions, useUsersUsersList } from './hooks/usersHooks/useUsersUsersList.ts'
 export {

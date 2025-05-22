@@ -30,7 +30,7 @@ export type { UsersTutorsDestroyMutationKey } from './usersHooks/useUsersTutorsD
 export type { UsersTutorsListQueryKey } from './usersHooks/useUsersTutorsList.ts'
 export type { UsersTutorsPartialUpdateMutationKey } from './usersHooks/useUsersTutorsPartialUpdate.ts'
 export type { UsersTutorsRetrieveQueryKey } from './usersHooks/useUsersTutorsRetrieve.ts'
-export type { UsersTutorsSummaryRetrieveQueryKey } from './usersHooks/useUsersTutorsSummaryRetrieve.ts'
+export type { UsersTutorsSummaryListQueryKey } from './usersHooks/useUsersTutorsSummaryList.ts'
 export type { UsersTutorsUpdateMutationKey } from './usersHooks/useUsersTutorsUpdate.ts'
 export type { UsersUsersListQueryKey } from './usersHooks/useUsersUsersList.ts'
 export type { UsersUsersRetrieveQueryKey } from './usersHooks/useUsersUsersRetrieve.ts'
@@ -87,11 +87,11 @@ export {
   useUsersTutorsRetrieve,
 } from './usersHooks/useUsersTutorsRetrieve.ts'
 export {
-  usersTutorsSummaryRetrieveQueryKey,
-  usersTutorsSummaryRetrieve,
-  usersTutorsSummaryRetrieveQueryOptions,
-  useUsersTutorsSummaryRetrieve,
-} from './usersHooks/useUsersTutorsSummaryRetrieve.ts'
+  usersTutorsSummaryListQueryKey,
+  usersTutorsSummaryList,
+  usersTutorsSummaryListQueryOptions,
+  useUsersTutorsSummaryList,
+} from './usersHooks/useUsersTutorsSummaryList.ts'
 export { usersTutorsUpdateMutationKey, usersTutorsUpdate, useUsersTutorsUpdate } from './usersHooks/useUsersTutorsUpdate.ts'
 export { usersUsersListQueryKey, usersUsersList, usersUsersListQueryOptions, useUsersUsersList } from './usersHooks/useUsersUsersList.ts'
 export { usersUsersRetrieveQueryKey, usersUsersRetrieve, usersUsersRetrieveQueryOptions, useUsersUsersRetrieve } from './usersHooks/useUsersUsersRetrieve.ts'

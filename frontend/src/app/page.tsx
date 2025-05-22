@@ -6,12 +6,12 @@ import Image from "next/image";
 import Hero from "@/components/Hero/Hero";
 
 import styles from "./page.module.css";
-import SubjectCard from "@/components/SubjectCard/SubjectCard";
 import { Label } from "@/components/ui/label";
 import StepCircle from "@/components/CircleList/CircleList";
 import CircleList from "@/components/CircleList/CircleList";
 import { IconCircle } from "@/features/icons/components/IconCircle/IconCircle";
 import SignUpAdvert from "@/components/SignUpAdvert/SignUpAdvert";
+import SubjectCard from "@/features/cards/components/SubjectCard/SubjectCard";
 
 // once done with this stuff need to use a different component library that doesnt use tailwind as dont like it but for now using it is fine to do the small stuff
 
