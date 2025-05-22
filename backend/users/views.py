@@ -3,6 +3,8 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
+from drf_spectacular.utils import extend_schema
+
 from .models import Subject, User, TutorProfile, TuteeProfile
 from .serializers import SubjectRWSerializer, UserRWSerializer, TutorProfileReadSerializer, TutorProfileWriteSerializer, TuteeProfileReadSerializer, TuteeProfileWriteSerializer, TutorProfileReadSummarySerializer
 
@@ -35,6 +37,7 @@ class TutorProfileViewSet(viewsets.ModelViewSet):
         
         return super().get_permissions()
     
+    @extend_schema(responses=TutorProfileReadSummarySerializer(many=True))
     @action(detail=False, methods=['get'], permission_classes=[AllowAny])
     def summary(self, request):
         queryset = self.get_queryset()

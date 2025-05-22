@@ -936,7 +936,7 @@ paths:
           description: No response body
   /api/users/tutors/summary/:
     get:
-      operationId: users_tutors_summary_retrieve
+      operationId: users_tutors_summary_list
       tags:
       - users
       security:
@@ -947,7 +947,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TutorProfileWrite'
+                type: array
+                items:
+                  $ref: '#/components/schemas/TutorProfileReadSummary'
           description: ''
   /api/users/users/:
     get:
@@ -1278,6 +1280,40 @@ components:
       - id
       - subjects
       - tutees
+    TutorProfileReadSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        full_name:
+          type: string
+          readOnly: true
+        email:
+          type: string
+          format: email
+          readOnly: true
+        hourly_rate:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,2})?$
+          nullable: true
+        subjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubjectRW'
+          readOnly: true
+        bio:
+          type: string
+          maxLength: 255
+        image:
+          type: string
+      required:
+      - email
+      - full_name
+      - id
+      - subjects
     TutorProfileWrite:
       type: object
       properties:
