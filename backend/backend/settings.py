@@ -177,3 +177,16 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     # Optional: Add your custom config here
 }
+
+
+# Media file support (in case you upload files later)
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
+# Allow frontend deployment URL (update later)
+CORS_ALLOWED_ORIGINS = [
+    "https://your-frontend.vercel.app",  # update this when frontend is deployed
+]
+
+# Allow deployment host
+ALLOWED_HOSTS = ["*"]  # for now, change to your render URL later
