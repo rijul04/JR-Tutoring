@@ -1,9 +1,6 @@
 import PopBaseCard from "@/components/PopBaseCard/PopBaseCard";
 import styles from "./TutorSummaryCard.module.css";
-import {
-  TutorProfileReadSummary,
-  UsersTutorsSummaryList200,
-} from "@/api/generated";
+import { TutorProfileReadSummary } from "@/api/generated";
 
 import { HatGraduation24Filled } from "@fluentui/react-icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -46,6 +43,8 @@ function SubjectsBaseList({
   return (
     <div className={styles.subjectList}>
       <HatGraduation24Filled />
+      {/* just showing one thing for now */}
+      <p>{subjects[0]?.name}</p>
     </div>
   );
 }

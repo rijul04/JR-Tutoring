@@ -1309,6 +1309,10 @@ components:
           maxLength: 255
         image:
           type: string
+        rating:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,1})?$
       required:
       - email
       - full_name

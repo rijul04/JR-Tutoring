@@ -1,6 +1,7 @@
 from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.core.validators import MinValueValidator, MaxValueValidator
 import uuid
 
 
@@ -78,6 +79,13 @@ class TutorProfile(models.Model):
     bio = models.CharField(max_length=255, blank=True)
     dob = models.DateField()
 
+    rating = models.DecimalField(
+        max_digits=2,
+        decimal_places=1,
+        default=2.5,
+        validators=[MinValueValidator(0), MaxValueValidator(5)],
+        db_index=True
+    )
 
 
     def __str__(self):

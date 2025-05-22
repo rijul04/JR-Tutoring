@@ -5,6 +5,8 @@ import Hero from "@/components/Hero/Hero";
 import styles from "./page.module.css";
 import { useUsersTutorsSummaryList } from "@/api/generated";
 import TutorSummaryCard from "@/features/cards/components/TutorSummaryCard/TutorSummaryCard";
+import TutorInfoBlock from "@/components/TutorInfoBlock/TutorInfoBlock";
+import SignUpAdvert from "@/components/SignUpAdvert/SignUpAdvert";
 
 export default function AboutPage() {
   const { data: tutorsSummaryListData } = useUsersTutorsSummaryList();
@@ -25,13 +27,19 @@ export default function AboutPage() {
         className={styles.basicText}
       >
         {tutorsSummaryListData?.map((tutorSummary) => (
-          <TutorSummaryCard
-            fullName={tutorSummary.full_name}
-            bio={tutorSummary.bio}
-            subjects={tutorSummary.subjects}
-            image={tutorSummary.image}
-          />
+          // <TutorSummaryCard
+          //   key={tutorSummary.id}
+          //   fullName={tutorSummary.full_name}
+          //   bio={tutorSummary.bio}
+          //   subjects={tutorSummary.subjects}
+          //   image={tutorSummary.image}
+          // />
+          // have made a custom component for the below but maybe just do direct in here?
+          <TutorInfoBlock tutorSummary={tutorSummary} />
         ))}
+      </Hero>
+      <Hero background="/images/BasicBackground3.jpg">
+        <SignUpAdvert />
       </Hero>
     </>
   );

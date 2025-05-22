@@ -196,4 +196,4 @@ class TutorProfileReadSummarySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TutorProfile
-        fields = ["id", "full_name", "email", 'hourly_rate', 'subjects', 'bio', 'image']
+        fields = ["id", "full_name", "email", 'hourly_rate', 'subjects', 'bio', 'image', "rating"]

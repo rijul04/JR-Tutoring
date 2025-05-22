@@ -341,6 +341,11 @@ export type TutorProfileReadSummary = {
    * @type string | undefined
    */
   image?: string | undefined
+  /**
+   * @pattern ^-?\d{0,1}(?:\.\d{0,1})?$
+   * @type string | undefined, decimal
+   */
+  rating?: string | undefined
 }
 
 export type TutorProfileWrite = {
