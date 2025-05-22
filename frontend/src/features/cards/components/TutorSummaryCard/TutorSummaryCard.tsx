@@ -6,6 +6,7 @@ import {
 } from "@/api/generated";
 
 import { HatGraduation24Filled } from "@fluentui/react-icons";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 type Props = {
   fullName: TutorProfileReadSummary["full_name"];
@@ -23,11 +24,14 @@ export default function TutorSummaryCard({
   return (
     <PopBaseCard>
       <>
-        <img
-          src={`data:image/png;base64,${image}`}
-          alt={`${fullName}'s avatar`}
-          className={styles.avatar}
-        />
+        <Avatar className={styles.avatar}>
+          <AvatarImage
+            className={styles.image}
+            src={`data:image/png;base64,${image}`}
+            alt={`${fullName}'s avatar`}
+          />
+          <AvatarFallback>{`${fullName}'s avatar`}</AvatarFallback>
+        </Avatar>
         <SubjectsBaseList subjects={subjects} />
       </>
     </PopBaseCard>
