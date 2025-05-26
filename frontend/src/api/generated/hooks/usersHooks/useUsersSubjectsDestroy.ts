@@ -21,7 +21,7 @@ export async function usersSubjectsDestroy(
   const res = await request<UsersSubjectsDestroyMutationResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'DELETE',
     url: `/api/users/subjects/${id}/`,
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://jr-backend-zfoi.onrender.com',
     ...requestConfig,
   })
   return res.data

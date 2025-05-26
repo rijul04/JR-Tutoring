@@ -26,7 +26,7 @@ export async function usersTuteesPartialUpdate(
   const res = await request<UsersTuteesPartialUpdateMutationResponse, ResponseErrorConfig<Error>, UsersTuteesPartialUpdateMutationRequest>({
     method: 'PATCH',
     url: `/api/users/tutees/${user}/`,
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://jr-backend-zfoi.onrender.com',
     data,
     ...requestConfig,
   })

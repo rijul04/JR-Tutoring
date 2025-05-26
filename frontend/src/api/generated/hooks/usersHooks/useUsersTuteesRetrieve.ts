@@ -22,7 +22,7 @@ export async function usersTuteesRetrieve(
   const res = await request<UsersTuteesRetrieveQueryResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'GET',
     url: `/api/users/tutees/${user}/`,
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://jr-backend-zfoi.onrender.com',
     ...requestConfig,
   })
   return res.data

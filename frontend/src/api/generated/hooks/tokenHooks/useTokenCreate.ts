@@ -22,7 +22,7 @@ export async function tokenCreate(
   const res = await request<TokenCreateMutationResponse, ResponseErrorConfig<Error>, TokenCreateMutationRequest>({
     method: 'POST',
     url: `/api/token/`,
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://jr-backend-zfoi.onrender.com',
     data,
     ...requestConfig,
   })

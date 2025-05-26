@@ -22,7 +22,7 @@ export async function usersSubjectsUpdate(
   const res = await request<UsersSubjectsUpdateMutationResponse, ResponseErrorConfig<Error>, UsersSubjectsUpdateMutationRequest>({
     method: 'PUT',
     url: `/api/users/subjects/${id}/`,
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://jr-backend-zfoi.onrender.com',
     data,
     ...requestConfig,
   })

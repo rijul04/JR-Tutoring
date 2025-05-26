@@ -21,7 +21,7 @@ export async function usersTutorsDestroy(
   const res = await request<UsersTutorsDestroyMutationResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'DELETE',
     url: `/api/users/tutors/${user}/`,
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://jr-backend-zfoi.onrender.com',
     ...requestConfig,
   })
   return res.data

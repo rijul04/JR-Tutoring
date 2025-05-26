@@ -18,7 +18,7 @@ export async function usersUsersList(config: Partial<RequestConfig> & { client?:
   const res = await request<UsersUsersListQueryResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'GET',
     url: `/api/users/users/`,
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://jr-backend-zfoi.onrender.com',
     ...requestConfig,
   })
   return res.data

@@ -18,7 +18,7 @@ export async function usersTuteesList(config: Partial<RequestConfig> & { client?
   const res = await request<UsersTuteesListQueryResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'GET',
     url: `/api/users/tutees/`,
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://jr-backend-zfoi.onrender.com',
     ...requestConfig,
   })
   return res.data

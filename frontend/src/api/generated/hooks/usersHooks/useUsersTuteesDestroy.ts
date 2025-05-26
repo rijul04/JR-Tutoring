@@ -21,7 +21,7 @@ export async function usersTuteesDestroy(
   const res = await request<UsersTuteesDestroyMutationResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'DELETE',
     url: `/api/users/tutees/${user}/`,
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://jr-backend-zfoi.onrender.com',
     ...requestConfig,
   })
   return res.data

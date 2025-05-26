@@ -18,7 +18,7 @@ export async function usersSubjectsList(config: Partial<RequestConfig> & { clien
   const res = await request<UsersSubjectsListQueryResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'GET',
     url: `/api/users/subjects/`,
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://jr-backend-zfoi.onrender.com',
     ...requestConfig,
   })
   return res.data

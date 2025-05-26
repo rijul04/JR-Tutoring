@@ -21,7 +21,7 @@ export async function usersTuteesCreate(
   const res = await request<UsersTuteesCreateMutationResponse, ResponseErrorConfig<Error>, UsersTuteesCreateMutationRequest>({
     method: 'POST',
     url: `/api/users/tutees/`,
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://jr-backend-zfoi.onrender.com',
     data,
     ...requestConfig,
   })

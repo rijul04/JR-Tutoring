@@ -19,7 +19,7 @@ export async function schemaRetrieve(params?: SchemaRetrieveQueryParams, config:
   const res = await request<SchemaRetrieveQueryResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'GET',
     url: `/api/schema/`,
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://jr-backend-zfoi.onrender.com',
     params,
     ...requestConfig,
   })
