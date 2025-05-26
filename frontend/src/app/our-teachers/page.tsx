@@ -23,20 +23,12 @@ export default function AboutPage() {
       </Hero>
       <Hero
         background="/images/BasicBackground1.png"
-        customHeight={"45vh"}
+        // customHeight={"45vh"}
         className={styles.basicText}
       >
-        {tutorsSummaryListData?.map((tutorSummary) => (
-          // <TutorSummaryCard
-          //   key={tutorSummary.id}
-          //   fullName={tutorSummary.full_name}
-          //   bio={tutorSummary.bio}
-          //   subjects={tutorSummary.subjects}
-          //   image={tutorSummary.image}
-          // />
-          // have made a custom component for the below but maybe just do direct in here?
-          <TutorInfoBlock tutorSummary={tutorSummary} />
-        ))}
+        {tutorsSummaryListData && (
+          <TutorInfoBlock tutorSummaryListData={tutorsSummaryListData} />
+        )}
       </Hero>
       <Hero background="/images/BasicBackground3.jpg">
         <SignUpAdvert />

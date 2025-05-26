@@ -1,4 +1,54 @@
+.popBaseCard {
+  min-height: 28vh;
+  aspect-ratio: 1.5 / 2;
+  padding-top: 6.4%;
+}
+
 .avatar {
   width: 64px;
   height: 64px;
+  margin-bottom: 8%;
+}
+
+.subjectList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 4px;
+}
+
+.triggerIcon {
+  color: #ec4899;
+}
+
+.triggerIcon:hover {
+  background-color: #db2777;
+}
+
+.popOverSubject {
+  display: flex;
+  gap: 5%;
+  align-items: center;
+
+  padding-left: 4%;
+}
+
+.separator {
+  background-color: #ec4899;
+  height: 0.8rem;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+.rating p {
+  /* not good way of doing it but trying to match the base of the text to start elemetn */
+  padding-top: 2.24px;
+  color: #f59e0b;
+  font-weight: bold;
 }

@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky",
-    "regen": "cd backend && poetry run manage.py spectacular --file ../openapi/schema.yaml && cd ../frontend && npx kubb generate"
+    "regen": "cd backend && poetry run python manage.py spectacular --file ../openapi/schema.yaml && cd ../frontend && npx kubb generate"
   },
   "repository": {
     "type": "git",
