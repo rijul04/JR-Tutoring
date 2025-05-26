@@ -3,7 +3,7 @@ import { pluginOas } from "@kubb/plugin-oas";
 import { pluginTs } from "@kubb/plugin-ts";
 import { pluginReactQuery } from "@kubb/plugin-react-query";
 
-const baseUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:8000";
+const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
 
 export default defineConfig({
   input: {
