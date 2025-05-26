@@ -28,6 +28,7 @@ rpds-py = "0.24.0"
 sqlparse = "0.5.3"
 typing-extensions = "4.13.2"
 uritemplate = "4.1.1"
+python-dotenv = "^1.1.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
