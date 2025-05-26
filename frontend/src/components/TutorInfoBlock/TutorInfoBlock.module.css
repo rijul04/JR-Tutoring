@@ -1,4 +1,20 @@
-.InfoBlock {
+/* .InfoBlocks {
   display: flex;
-  gap: 15px;
+  flex-direction: column;
+  gap: 160px;
+} */
+
+.InfoBlockElement {
+  display: flex;
+  gap: 15%;
+
+  margin-top: 45px;
+  margin-bottom: 25px;
+}
+
+.blockTextInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
