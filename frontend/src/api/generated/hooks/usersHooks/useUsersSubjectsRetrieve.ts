@@ -22,7 +22,7 @@ export async function usersSubjectsRetrieve(
   const res = await request<UsersSubjectsRetrieveQueryResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'GET',
     url: `/api/users/subjects/${id}/`,
-    baseURL: 'https://jr-backend-zfoi.onrender.com',
+    baseURL: 'http://localhost:8000',
     ...requestConfig,
   })
   return res.data

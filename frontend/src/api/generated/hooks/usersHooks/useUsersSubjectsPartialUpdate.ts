@@ -26,7 +26,7 @@ export async function usersSubjectsPartialUpdate(
   const res = await request<UsersSubjectsPartialUpdateMutationResponse, ResponseErrorConfig<Error>, UsersSubjectsPartialUpdateMutationRequest>({
     method: 'PATCH',
     url: `/api/users/subjects/${id}/`,
-    baseURL: 'https://jr-backend-zfoi.onrender.com',
+    baseURL: 'http://localhost:8000',
     data,
     ...requestConfig,
   })

@@ -21,7 +21,7 @@ export async function usersSubjectsCreate(
   const res = await request<UsersSubjectsCreateMutationResponse, ResponseErrorConfig<Error>, UsersSubjectsCreateMutationRequest>({
     method: 'POST',
     url: `/api/users/subjects/`,
-    baseURL: 'https://jr-backend-zfoi.onrender.com',
+    baseURL: 'http://localhost:8000',
     data,
     ...requestConfig,
   })

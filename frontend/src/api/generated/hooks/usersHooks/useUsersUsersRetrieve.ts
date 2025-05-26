@@ -19,7 +19,7 @@ export async function usersUsersRetrieve({ id }: { id: UsersUsersRetrievePathPar
   const res = await request<UsersUsersRetrieveQueryResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'GET',
     url: `/api/users/users/${id}/`,
-    baseURL: 'https://jr-backend-zfoi.onrender.com',
+    baseURL: 'http://localhost:8000',
     ...requestConfig,
   })
   return res.data

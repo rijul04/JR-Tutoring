@@ -18,7 +18,7 @@ export async function usersTutorsSummaryList(config: Partial<RequestConfig> & { 
   const res = await request<UsersTutorsSummaryListQueryResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'GET',
     url: `/api/users/tutors/summary/`,
-    baseURL: 'https://jr-backend-zfoi.onrender.com',
+    baseURL: 'http://localhost:8000',
     ...requestConfig,
   })
   return res.data

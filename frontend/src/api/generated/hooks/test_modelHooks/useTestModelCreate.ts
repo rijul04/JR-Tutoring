@@ -21,7 +21,7 @@ export async function testModelCreate(
   const res = await request<TestModelCreateMutationResponse, ResponseErrorConfig<Error>, TestModelCreateMutationRequest>({
     method: 'POST',
     url: `/api/test_model/`,
-    baseURL: 'https://jr-backend-zfoi.onrender.com',
+    baseURL: 'http://localhost:8000',
     data,
     ...requestConfig,
   })

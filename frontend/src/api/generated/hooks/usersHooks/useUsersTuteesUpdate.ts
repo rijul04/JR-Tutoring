@@ -22,7 +22,7 @@ export async function usersTuteesUpdate(
   const res = await request<UsersTuteesUpdateMutationResponse, ResponseErrorConfig<Error>, UsersTuteesUpdateMutationRequest>({
     method: 'PUT',
     url: `/api/users/tutees/${user}/`,
-    baseURL: 'https://jr-backend-zfoi.onrender.com',
+    baseURL: 'http://localhost:8000',
     data,
     ...requestConfig,
   })

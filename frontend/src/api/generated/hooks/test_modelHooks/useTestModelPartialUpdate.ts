@@ -22,7 +22,7 @@ export async function testModelPartialUpdate(
   const res = await request<TestModelPartialUpdateMutationResponse, ResponseErrorConfig<Error>, TestModelPartialUpdateMutationRequest>({
     method: 'PATCH',
     url: `/api/test_model/${id}/`,
-    baseURL: 'https://jr-backend-zfoi.onrender.com',
+    baseURL: 'http://localhost:8000',
     data,
     ...requestConfig,
   })

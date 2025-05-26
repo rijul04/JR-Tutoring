@@ -18,7 +18,7 @@ export async function testModel2List(config: Partial<RequestConfig> & { client?:
   const res = await request<TestModel2ListQueryResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'GET',
     url: `/api/test_model_2/`,
-    baseURL: 'https://jr-backend-zfoi.onrender.com',
+    baseURL: 'http://localhost:8000',
     ...requestConfig,
   })
   return res.data

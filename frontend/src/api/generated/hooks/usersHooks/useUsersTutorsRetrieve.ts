@@ -22,7 +22,7 @@ export async function usersTutorsRetrieve(
   const res = await request<UsersTutorsRetrieveQueryResponse, ResponseErrorConfig<Error>, unknown>({
     method: 'GET',
     url: `/api/users/tutors/${user}/`,
-    baseURL: 'https://jr-backend-zfoi.onrender.com',
+    baseURL: 'http://localhost:8000',
     ...requestConfig,
   })
   return res.data
