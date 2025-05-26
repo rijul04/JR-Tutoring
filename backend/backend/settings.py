@@ -10,11 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 
 from datetime import timedelta
 from pathlib import Path
 
 import dj_database_url
+
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -89,16 +93,24 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     # 'default': {
+#     #     'ENGINE': 'django.db.backends.postgresql',
+#     #     'NAME': 'jr_tutoring_db',
+#     #     'USER': 'jr_tutoring_admin',
+#     #     'PASSWORD': 'qfXU%MjMYJ3Xmr',
+#     #     'HOST': 'localhost',
+#     #     'PORT': '5432',
+#     # }
+#     'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+# }
+
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'jr_tutoring_db',
-    #     'USER': 'jr_tutoring_admin',
-    #     'PASSWORD': 'qfXU%MjMYJ3Xmr',
-    #     'HOST': 'localhost',
-    #     'PORT': '5432',
-    # }
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600,
+        ssl_require=os.getenv('DATABASE_SSL', 'false') == 'true'
+    )
 }
 
 
@@ -173,6 +185,7 @@ SPECTACULAR_SETTINGS = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Frontend dev server
+    "https://jr-backend-zfoi.onrender.com", # Frontend prod server
 ]
 
 
@@ -186,11 +199,6 @@ SIMPLE_JWT = {
 # Media file support (in case you upload files later)
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
-
-# Allow frontend deployment URL (update later)
-CORS_ALLOWED_ORIGINS = [
-    "https://your-frontend.vercel.app",  # update this when frontend is deployed
-]
 
 # Allow deployment host
 ALLOWED_HOSTS = ["*"]  # for now, change to your render URL later

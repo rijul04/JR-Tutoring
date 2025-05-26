@@ -1,11 +1,8 @@
 #!/bin/sh
 
-echo "🌀 Activating Python virtualenv..."
-cd backend || exit 1
-. venv/bin/activate || exit 1
-
 echo "🌀 Generating OpenAPI schema..."
-python3 manage.py spectacular --file ../openapi/schema.yaml || exit 1
+cd backend || exit 1
+poetry run python manage.py spectacular --file ../openapi/schema.yaml || exit 1
 
 echo "🔄 Running Kubb to sync frontend hooks & types..."
 cd ../frontend || exit 1
