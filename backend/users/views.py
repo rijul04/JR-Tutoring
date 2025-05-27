@@ -24,18 +24,18 @@ class TutorProfileViewSet(viewsets.ModelViewSet):
             return TutorProfileReadSerializer
         return TutorProfileWriteSerializer
         
-    def get_permissions(self):
-        if self.action:
-            if self.action == 'create':
-                return [AllowAny()]
+    # def get_permissions(self):
+    #     if self.action:
+    #         if self.action == 'create':
+    #             return [AllowAny()]
             
-            action = getattr(self, self.action, None)
-            if action is not None:
-                permission_classes = getattr(action, 'permission_classes', None)
-                if permission_classes is not None:
-                    return [permission() for permission in permission_classes]        
+    #         action = getattr(self, self.action, None)
+    #         if action is not None:
+    #             permission_classes = getattr(action, 'permission_classes', None)
+    #             if permission_classes is not None:
+    #                 return [permission() for permission in permission_classes]        
         
-        return super().get_permissions()
+    #     return super().get_permissions()
     
     @extend_schema(responses=TutorProfileReadSummarySerializer(many=True))
     @action(detail=False, methods=['get'], permission_classes=[AllowAny])
