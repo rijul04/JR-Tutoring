@@ -185,7 +185,8 @@ SPECTACULAR_SETTINGS = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Frontend dev server
-    "https://jr-backend-zfoi.onrender.com", # Frontend prod server
+    # "https://jr-backend-zfoi.onrender.com", 
+    "https://www.jr-tutoring.com" # Frontend prod server
 ]
 
 
